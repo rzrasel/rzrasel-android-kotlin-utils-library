@@ -74,7 +74,7 @@ publishing {
             from components.findByName(it.name)
 
             pom {
-                description = "A description of my library"
+                description = "A description of my library "
             }
         }
     }
