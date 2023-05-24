@@ -40,3 +40,9 @@ class MainActivity : AppCompatActivity() {
         println("DEBUG_LOG_PRINT: 100.px ${100.px}")
     }
 }
+/*
+
+Publish an Android Library to MavenLocal with Gradle | Android Studio
+https://youtu.be/ZnU21u1_fBE
+
+*/
