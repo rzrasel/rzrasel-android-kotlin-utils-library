@@ -4,13 +4,16 @@ plugins {
     id "org.jetbrains.kotlin.android"
     id "maven-publish"
 }
-apply plugin: 'idea'
+
+apply plugin: "maven-publish"
+
+/*apply plugin: 'idea'
 idea {
     module {
         downloadJavadoc = true
         downloadSources = true
     }
-}
+}*/
 
 //|----------------------|ANDROID SECTION|-----------------------|
 android {
@@ -82,6 +85,21 @@ afterEvaluate {
             groupId = "com.rzrasel.kotlin"
             artifactId = "utils"
             version = "0.0.1"
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.rzrasel.kotlin"
+            artifactId = "utils"
+            version = "0.0.1"
+            from components.findByName(it.name)
+
+            pom {
+                description = "A description of my library"
+            }
         }
     }
 }
