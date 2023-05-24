@@ -1,0 +1,59 @@
+//|--------------------------|PLUGINS|---------------------------|
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
+}
+
+//|----------------------|ANDROID SECTION|-----------------------|
+android {
+    namespace "com.rzrasel.kotlinutils"
+    compileSdk 33
+
+    //|---------------------|DEFAULT CONFIG|---------------------|
+    defaultConfig {
+        minSdk 16
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    //|----------------------|BUILD TYPES|-----------------------|
+    buildTypes {
+        //|Build Types - Debug|----------------------------------|
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+        //|Build Types - Release|--------------------------------|
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    //|-----------|COMPILE OPTIONS - JAVA VERSION 11|------------|
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    //|------------|KOTLIN OPTIONS - JAVA VERSION 11|------------|
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+//|--------------------|DEPENDENCIES SECTION|--------------------|
+dependencies {
+
+    //|--------------|SYSTEM DEFINED DEPENDENCIES|---------------|
+    implementation "androidx.core:core-ktx:1.8.0"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+    
+    //|---------------|USER DEFINED DEPENDENCIES|----------------|
+}
