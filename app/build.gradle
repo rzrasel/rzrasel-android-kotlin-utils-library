@@ -14,8 +14,8 @@ android {
         applicationId "com.rzrasel.appusages"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,3 +61,46 @@ dependencies {
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
     implementation project(path: ":kotlinutils")
 }
+
+/*afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.rzrasel"
+                artifactId = "kotlinutils"
+                version = Config.libraryVersion
+            }
+        }
+    }
+}*/
+
+/*publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.rzrasel"
+            artifactId = "kotlinutils"
+            version = "1.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}*/
+
+/*
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.rzrasel"
+            artifactId = "kotlinutils"
+            version = "1.0.1"
+
+            //from(components["java"])
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}*/

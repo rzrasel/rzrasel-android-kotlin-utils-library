@@ -2,12 +2,13 @@
 plugins {
     id "com.android.library"
     id "org.jetbrains.kotlin.android"
+    id "maven-publish"
 }
 
 //|----------------------|ANDROID SECTION|-----------------------|
 android {
     namespace "com.rzrasel.kotlinutils"
-    compileSdk 33
+    /*compileSdk 33
 
     //|---------------------|DEFAULT CONFIG|---------------------|
     defaultConfig {
@@ -32,28 +33,32 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
-    }
+    }*/
     //|-----------|COMPILE OPTIONS - JAVA VERSION 11|------------|
-    compileOptions {
+    /*compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
     //|------------|KOTLIN OPTIONS - JAVA VERSION 11|------------|
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+    }*/
 }
 
 //|--------------------|DEPENDENCIES SECTION|--------------------|
 dependencies {
 
     //|--------------|SYSTEM DEFINED DEPENDENCIES|---------------|
-    implementation "androidx.core:core-ktx:1.8.0"
+    /*implementation "androidx.core:core-ktx:1.10.1"
     implementation "androidx.appcompat:appcompat:1.6.1"
     implementation "com.google.android.material:material:1.9.0"
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"*/
     
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.1")
+    api("org.apache.commons:commons-math3:3.6.1")
+    implementation("com.google.guava:guava:31.1-jre")
 }
