@@ -75,14 +75,40 @@ afterEvaluate {
         publishing.publications.create(variant.name, MavenPublication) {
             from components.findByName(variant.name)
 
-            //artifact androidJavadocsJar
-            //artifact androidSourcesJar
+            artifact androidJavadocsJar
+            artifact androidSourcesJar
 
             groupId = "com.rzrasel"
             artifactId = "kotlinutils"
             version = "0.0.1"
         }
     }
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    android.libraryVariants.all { variant ->
+        /*if (variant.name == 'release') {
+            owner.classpath += variant.javaCompileProvider.get().classpath
+        }*/
+        owner.classpath += variant.javaCompileProvider.get().classpath
+    }
+    exclude '**/R.html', '**/R.*.html', '**/index.html'
+
+    options {
+        memberLevel = JavadocMemberLevel.PROTECTED
+    }
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    archiveClassifier.set('javadoc')
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
 }
 
 /*
