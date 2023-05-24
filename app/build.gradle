@@ -65,6 +65,21 @@ dependencies {
     implementation project(path: ":kotlinutils")
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.rzrasel.kotlin"
+            artifactId = "utils"
+            version = "0.0.1"
+            from components.findByName(it.name)
+
+            pom {
+                description = "A description of my library"
+            }
+        }
+    }
+}
+
 /*afterEvaluate {
     publishing {
         publications {
