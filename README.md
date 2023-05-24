@@ -16,4 +16,8 @@ git push --all
 git status
 git remote show origin
 git status
+
+git rm -rf .idea;
+git commit -m "delete .idea";
+git push;
 ```
