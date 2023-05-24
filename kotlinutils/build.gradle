@@ -76,8 +76,8 @@ afterEvaluate {
         publishing.publications.create(variant.name, MavenPublication) {
             from components.findByName(variant.name)
 
-            artifact androidJavadocsJar
-            artifact androidSourcesJar
+            //artifact androidJavadocsJar
+            //artifact androidSourcesJar
 
             groupId = "com.rzrasel.kotlin"
             artifactId = "utils"
