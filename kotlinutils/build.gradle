@@ -4,13 +4,20 @@ plugins {
     id "org.jetbrains.kotlin.android"
     id "maven-publish"
 }
+apply plugin: 'idea'
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
 
 //|----------------------|ANDROID SECTION|-----------------------|
 android {
     namespace "com.rzrasel.kotlinutils"
-    /*compileSdk 33
+    compileSdk 33
 
-    //|---------------------|DEFAULT CONFIG|---------------------|
+    /*//|---------------------|DEFAULT CONFIG|---------------------|
     defaultConfig {
         minSdk 16
         targetSdk 33
@@ -55,10 +62,39 @@ dependencies {
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"*/
-    
+
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.1")
     api("org.apache.commons:commons-math3:3.6.1")
     implementation("com.google.guava:guava:31.1-jre")
 }
+
+afterEvaluate {
+    android.libraryVariants.each { variant ->
+        publishing.publications.create(variant.name, MavenPublication) {
+            from components.findByName(variant.name)
+
+            //artifact androidJavadocsJar
+            //artifact androidSourcesJar
+
+            groupId = "com.rzrasel"
+            artifactId = "kotlinutils"
+            version = "0.0.1"
+        }
+    }
+}
+
+/*
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.rzrasel"
+                artifactId = "kotlinutils"
+                version = Config.libraryVersion
+            }
+        }
+    }
+}*/
