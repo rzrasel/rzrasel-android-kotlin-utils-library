@@ -65,7 +65,7 @@ dependencies {
     implementation project(path: ":kotlinutils")
 }
 
-publishing {
+/*publishing {
     publications {
         maven(MavenPublication) {
             groupId = "com.rzrasel.kotlin"
@@ -78,7 +78,7 @@ publishing {
             }
         }
     }
-}
+}*/
 
 /*afterEvaluate {
     publishing {

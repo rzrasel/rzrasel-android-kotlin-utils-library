@@ -80,7 +80,28 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
 }
 
-afterEvaluate {
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId "com.rzrasel.kotlin"
+                artifactId "utils"
+                version "0.0.1"
+
+                if (project.plugins.findPlugin("com.android.library")) {
+                    from components.release
+                } else {
+                    from components.java
+                }
+
+                //artifact androidSourcesJar
+                //artifact javadocJar
+            }
+        }
+    }
+}
+
+/*afterEvaluate {
     android.libraryVariants.all { variant ->
         publishing.publications.create(variant.name, MavenPublication) {
             from components.findByName(variant.name)
@@ -108,7 +129,7 @@ publishing {
             }
         }
     }
-}
+}*/
 
 
 

@@ -45,4 +45,7 @@ class MainActivity : AppCompatActivity() {
 Publish an Android Library to MavenLocal with Gradle | Android Studio
 https://youtu.be/ZnU21u1_fBE
 
+Camposer
+https://github.com/ujizin/Camposer
+
 */
