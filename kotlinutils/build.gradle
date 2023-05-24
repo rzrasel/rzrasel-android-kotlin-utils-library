@@ -79,8 +79,8 @@ afterEvaluate {
             artifact androidJavadocsJar
             artifact androidSourcesJar
 
-            groupId = "com.rzrasel.libaray"
-            artifactId = "kotlinutils"
+            groupId = "com.rzrasel.kotlin"
+            artifactId = "utils"
             version = "0.0.1"
         }
     }
