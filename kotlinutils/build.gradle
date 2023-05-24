@@ -4,7 +4,6 @@ plugins {
     id "org.jetbrains.kotlin.android"
     id "maven-publish"
 }
-
 apply plugin: "maven-publish"
 
 /*apply plugin: "idea"
@@ -80,7 +79,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
 }
 
-project.afterEvaluate {
+/*project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
@@ -96,6 +95,24 @@ project.afterEvaluate {
 
                 //artifact androidSourcesJar
                 //artifact javadocJar
+            }
+        }
+    }
+}*/
+
+afterEvaluate {
+    publishing {
+        publications {
+            //register<MavenPublication>("release") {
+            maven(MavenPublication) {
+                groupId = "com.rzrasel.kotlin"
+                artifactId = "utils"
+                version = "0.0.1"
+
+                artifact androidJavadocsJar
+                artifact androidSourcesJar
+
+                from(components["release"])
             }
         }
     }
@@ -132,7 +149,6 @@ publishing {
 }*/
 
 
-
 /*task androidJavadocs(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
@@ -159,7 +175,7 @@ task androidSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
 }*/
 
-task androidSourcesJar(type: Jar) {
+/*task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin("com.android.library")) {
         from android.sourceSets.main.java.srcDirs
@@ -168,17 +184,46 @@ task androidSourcesJar(type: Jar) {
         from sourceSets.main.java.srcDirs
         from sourceSets.main.kotlin.srcDirs
     }
-}
+}*/
 
 /*tasks.withType(dokkaHtmlPartial.getClass()).configureEach {
     pluginsMapConfiguration.set(
             ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
     )
 }*/
-
+/*task androidSourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.srcDirs
+}
 task javadocJar(type: Jar, dependsOn: androidJavadocs) {
     archiveClassifier.set("javadoc")
     from androidJavadocs.destinationDir
+}*/
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    android.libraryVariants.all { variant ->
+        /*if (variant.name == "release") {
+            owner.classpath += variant.javaCompileProvider.get().classpath
+        }*/
+        owner.classpath += variant.javaCompileProvider.get().classpath
+    }
+    exclude "**/R.html", "**/R.*.html", "**/index.html"
+
+    options {
+        memberLevel = JavadocMemberLevel.PROTECTED
+    }
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    archiveClassifier.set("javadoc")
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.srcDirs
 }
 
 artifacts {
