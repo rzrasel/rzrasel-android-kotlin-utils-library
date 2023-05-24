@@ -13,8 +13,9 @@ object ProResources {
             context.resources.getIdentifier(
                 drawableName,
                 "drawable",
-                context.applicationInfo.packageName
+                context.packageName
             )
+        //context.applicationInfo.packageName
         return ContextCompat.getDrawable(context, drawableResourceId)
     }
 
@@ -23,15 +24,16 @@ object ProResources {
         return context.resources.getIdentifier(
                 drawableName,
                 "drawable",
-                context.applicationInfo.packageName
+                context.packageName
             )
+        //context.applicationInfo.packageName
     }
 
     //|----------------|METHOD - GET RESOURCE ID|----------------|
     fun getResourceId(resourceName: String, resourceType: String?, context: Context): Int {
         val resourceId = context.resources.getIdentifier(
             resourceName, resourceType,
-            context.applicationInfo.packageName
+            context.packageName
         )
         return if (resourceId == 0) {
             throw IllegalArgumentException(

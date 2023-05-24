@@ -14,7 +14,7 @@ object AppScreen {
     //|---------------------|METHOD - SIZE|----------------------|
     fun size(activity: Activity, context: Context): Size {
         //|----------------|VARIABLE SCOPE START|----------------|
-        var sizeUnit: Size = Size(0, 0)
+        var sizeUnit: Size
         var width: Int
         var height: Int
         //|-----------------|VARIABLE SCOPE END|-----------------|

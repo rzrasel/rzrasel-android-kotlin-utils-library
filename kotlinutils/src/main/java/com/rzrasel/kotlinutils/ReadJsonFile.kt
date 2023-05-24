@@ -1,9 +1,6 @@
 package com.rzrasel.kotlinutils
 
 import android.content.Context
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
 import java.io.IOException
 
 //|-------------------|OBJECT READ JSON FILE|--------------------|
