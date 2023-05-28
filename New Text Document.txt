@@ -1,0 +1,134 @@
+<?php
+abstract class EnumStuff {
+    public const tableName = "db_table_stuff";
+    public const id = "stuff_id";
+    public const title = "stuff_title";
+    public const slug = "stuff_slug";
+    public const isEnabled = "stuff_is_enabled";
+    public const createDate = "stuff_create_date";
+    public const modifiedDate = "stuff_modified_date";
+}
+?>
+<?php
+class DbTableStuff {
+    public $dropTable = ""
+        . "DROP TABLE IF EXISTS "
+        . EnumStuff::tableName
+        . ";";
+    public $createTablePrefix = ""
+        . "CREATE TABLE IF NOT EXISTS"
+        . " " . EnumStuff::tableName
+        . " (";
+    public $id = array(EnumStuff::id, "BIGINT");
+    public $title = array(EnumStuff::title, "TEXT");
+    public $slug = array(EnumStuff::title, "VARCHAR(255)");
+    public $isEnabled = array(EnumStuff::title, "BOOLEAN");
+    public $createDate = array(EnumStuff::title, "VARCHAR(64)");
+    public $modifiedDate = array(EnumStuff::title, "VARCHAR(64)");
+    public $pkConstraint1 = ""
+        . "CONSTRAINT pk_"
+        . EnumStuff::tableName
+        . "_" . EnumStuff::id
+        . " PRIMARY KEY ("
+        . EnumStuff::id
+        . ");";
+    public $createTablePostfix = ""
+        . ");";
+    public function getTableName() {
+        return EnumStuff::tableName;
+    }
+}
+?>
+<?php
+class TabbedArrayPrinter {
+    public function printCreateTableSql($dbTableObject) {
+        $columnArray = array();
+        foreach($dbTableObject as $key => $value) {
+            if(is_array($value)) {
+                if(count($value) > 1) {
+                    $columnArray[] = "$value[0]\t\t$value[1],";
+                }
+            } else {
+                $columnArray[] = "$value";
+            }
+        }
+        echo implode("\n", $columnArray);
+        echo "\n";
+        echo "\n";
+    }
+    public function onPrintArray($arrayData, $valuePrefix = "", $valuePostfix = "", $totalTab = 1, $isKeyQuoted = true, $isValueQuoted = true) {
+        $resultArray = array();
+        $tabCount = 1;
+        $keyMaxLength = $this->getKeyMaxLength($arrayData);
+        if($isKeyQuoted) {
+            $keyMaxLength = $keyMaxLength + 2;
+        }
+        foreach($arrayData as $key => $value) {
+            $keyStrLen = strlen($key);
+            $tabCount = ($keyMaxLength - $keyStrLen) / 4;
+            //$tabCount = ceil($tabCount);
+            $tabCount = round($tabCount);
+            //$tabCount = floor($tabCount);
+            $tempKeyStrLen = $keyStrLen;
+            if($keyStrLen == $keyMaxLength) {
+                $tabCount = 0;
+            }
+            if($isKeyQuoted) {
+                if($keyStrLen == $keyMaxLength - 2) {
+                    $tabCount = 0;
+                }
+            }
+            $tabCount = $tabCount + $totalTab;
+            $tabValue = str_repeat("\t", $tabCount);
+            //
+            $keyData = $key;
+            if($isKeyQuoted) {
+                $keyData = "\"$key\"";
+            }
+            //
+            $valueData = "$valuePrefix $value$valuePostfix";
+            if($isValueQuoted) {
+                $valueData = "$valuePrefix \"$value\"$valuePostfix";
+            }
+            //
+            $resultArray[] = ""
+                . $keyData
+                . $tabValue
+                . $valueData
+                //. " ---- tab count $tabCount"
+                //. " ---- keyStrLen $keyStrLen"
+                //. " ---- keyMaxLength $keyMaxLength"
+                . "";
+        }
+        echo implode("\n", $resultArray);
+        echo "\n";
+        echo "\n";
+    }
+    public function getKeyMaxLength($arrayData) {
+        $keyLength = -1;
+        $keyList = array_keys($arrayData);
+        foreach($keyList as $value) {
+            $strLen = strlen($value);
+            if($strLen > $keyLength) {
+                $keyLength = $strLen;
+            }
+        }
+        return $keyLength;
+    }
+}
+?>
+<?php
+$dbTableStuff = new DbTableStuff();
+$abbedArrayPrinter = new TabbedArrayPrinter();
+$abbedArrayPrinter->printCreateTableSql($dbTableStuff);
+$tastData = array(
+    "key" => "data",
+    "aTestVariableForMe" => "value",
+    "a" => "b",
+);
+echo "<br />";
+echo "\n";
+$abbedArrayPrinter->onPrintArray($tastData, "=", ",", 1, false, true);
+?>					= "b",
+<?php
+?>

@@ -25,7 +25,7 @@ object AssetFileReader {
         Drawable.createFromStream(inputStream(context, fileName), null)
 
     //imageView.setImageBitmap(bm)
-    fun bitmap(context: Context, fileName: String): Bitmap =
+    fun bitmap(context: Context, fileName: String): Bitmap? =
         BitmapFactory.decodeStream(inputStream(context, fileName))
 
     fun audioDescriptor(context: Context, fileName: String): AssetFileDescriptor =

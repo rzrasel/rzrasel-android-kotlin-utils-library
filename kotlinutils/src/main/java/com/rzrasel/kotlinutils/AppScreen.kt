@@ -14,9 +14,9 @@ object AppScreen {
     //|---------------------|METHOD - SIZE|----------------------|
     fun size(activity: Activity, context: Context): Size {
         //|----------------|VARIABLE SCOPE START|----------------|
-        var sizeUnit: Size
-        var width: Int
-        var height: Int
+        val sizeUnit: Size
+        val width: Int
+        val height: Int
         //|-----------------|VARIABLE SCOPE END|-----------------|
         //|----------------|CHECK BUILD VERSION|-----------------|
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
