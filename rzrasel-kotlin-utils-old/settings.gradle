@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "App Usages"
+include ":app"
+include ":kotlinutils"
+//project(":kotlinutils").projectDir = new File(settingsDir, "rzrasel-kotlin-utils/kotlinutils")
+//project(":kotlinutils").projectDir = new File(settingsDir, "../kotlinutils")

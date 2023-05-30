@@ -1,0 +1,124 @@
+//|--------------------------|PLUGINS|---------------------------|
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "maven-publish"
+}
+
+//apply plugin: "maven-publish"
+
+//|----------------------|ANDROID SECTION|-----------------------|
+android {
+    namespace "com.rzrasel.appusages"
+    compileSdk 33
+
+    //|---------------------|DEFAULT CONFIG|---------------------|
+    defaultConfig {
+        applicationId "com.rzrasel.appusages"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    //|----------------------|BUILD TYPES|-----------------------|
+    buildTypes {
+        //|Build Types - Debug|----------------------------------|
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+        //|Build Types - Release|--------------------------------|
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    //|-----------|COMPILE OPTIONS - JAVA VERSION 11|------------|
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    //|------------|KOTLIN OPTIONS - JAVA VERSION 11|------------|
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+//|--------------------|DEPENDENCIES SECTION|--------------------|
+dependencies {
+
+    //|--------------|SYSTEM DEFINED DEPENDENCIES|---------------|
+    implementation "androidx.core:core-ktx:1.10.1"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+
+    //|---------------|USER DEFINED DEPENDENCIES|----------------|
+    implementation project(path: ":kotlinutils")
+}
+
+/*publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.rzrasel.kotlin"
+            artifactId = "utils"
+            version = "0.0.1"
+            from components.findByName(it.name)
+
+            pom {
+                description = "A description of my library "
+            }
+        }
+    }
+}*/
+
+/*afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.rzrasel"
+                artifactId = "kotlinutils"
+                version = Config.libraryVersion
+            }
+        }
+    }
+}*/
+
+/*publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.rzrasel"
+            artifactId = "kotlinutils"
+            version = "1.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}*/
+
+/*
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.rzrasel"
+            artifactId = "kotlinutils"
+            version = "1.0.1"
+
+            //from(components["java"])
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}*/
