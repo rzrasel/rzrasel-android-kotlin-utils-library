@@ -1,0 +1,25 @@
+package com.rzrasel.rztutorial
+
+object PhotoModelDataSet {
+    fun getData(): ArrayList<DataModel> {
+        val dataList = ArrayList<DataModel>()
+        //add data
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        dataList.add(DataModel("Title", "Desc", R.drawable.online))
+        return dataList
+    }
+}
