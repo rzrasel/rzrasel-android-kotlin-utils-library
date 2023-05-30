@@ -21,3 +21,4 @@ include ":kotlindatastore"
 project(":kotlindatastore").projectDir = new File(settingsDir, "rzrasel-kotlin-utils/kotlindatastore")
 include ":kotlinmediaplayer"
 project(":kotlinmediaplayer").projectDir = new File(settingsDir, "rzrasel-kotlin-utils/kotlinmediaplayer")
+//project(":kotlinutils").projectDir = new File(settingsDir, "../kotlinutils")
