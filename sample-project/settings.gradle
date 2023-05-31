@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+rootProject.name = "Rz Rasel Tutorial"
+include ":app"
+//project(":kotlinutils").projectDir = new File(settingsDir, "../kotlinutils")
+include ":kotlindatastore"
+project(":kotlindatastore").projectDir = new File(settingsDir, "../kotlindatastore")
+include ":kotlinmediaplayer"
+project(":kotlinmediaplayer").projectDir = new File(settingsDir, "../kotlinmediaplayer")
+include ":kotlinutils"
+project(":kotlinutils").projectDir = new File(settingsDir, "../kotlinutils")
