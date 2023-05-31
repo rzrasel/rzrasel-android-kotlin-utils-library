@@ -59,3 +59,11 @@ class HorizontalAdapter(val context: Context, private var modelDataList: ArrayLi
         fun setOItemClickListener(view: View, itemData: DataModel, position: Int)
     }
 }
+/*
+
+Zaynax লিমিটেড অ্যান্ড্রয়েড এবং আইওএস-এ বিভিন্ন ধরনের অ্যাপ ডেভেলপমেন্টের জন্য সিনিয়র এবং টিম লিড হিসেবে আমাকে হায়ার করে। এখানে অ্যান্ড্রয়েড এবং আইওএস উভয় প্ল্যাটফর্মের জন্য zDrop ই-কমার্স অ্যাপ এবং Zaynax Health স্বাস্থ্য সম্পর্কিত অ্যাপ উল্লেখযোগ্য।
+
+
+
+
+*/
