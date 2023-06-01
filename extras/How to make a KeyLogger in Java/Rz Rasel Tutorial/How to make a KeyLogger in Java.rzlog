@@ -1,0 +1,12 @@
+Rz.Rasel.RzraselTutorial{ENTER}
+
+Main{ENTER}{CTRL}s
+{BACKSPACE}{CTRL}s//End. GoTo Line Number: 3 after class name. Implement NativeKeyListener{CTRL}s
+{SPACE}imp{ENTER}NatKLi{ENTER}{END}
+{CTRL}s//End. Implement required methods - GoTo Line Number: 15 end of line.{CTRL}S
+
+{ENTER}Sy.o{ENTER}.pln{ENTER}"Pressed: {RIGHT} +  NaKEv{ENTER}.getKTe{ENTER}NaKEv{ENTER}.getKCo{ENTER}{END}//End. GoTo Line Number: 20 end of line{CTRL}S
+{ENTER}Sy.o{ENTER}.pln{ENTER}"Released: {RIGHT} {EQUALS} {RIGHT} +  NaKEv{ENTER}.getKTe{ENTER}NaKEv{ENTER}.getKCo{ENTER}{END}//End. GoTo Line Number: 7 end of line{CTRL}S
+
+{ENTER}GlScr{ENTER}.reNHoo{ENTER}//End. Add TryCatch manually - GoTo Line Number: 14 end of line.{CTRL}S
+{ENTER}GlScr{ENTER}.addNat{ENTER}new RzRTut{ENTER}{END}//End. End of project{CTRL}S

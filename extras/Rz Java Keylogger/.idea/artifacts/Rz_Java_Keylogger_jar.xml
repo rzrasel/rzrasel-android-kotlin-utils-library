@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Rz Java Keylogger:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Rz_Java_Keylogger_jar</output-path>
+    <root id="archive" name="Rz Java Keylogger.jar">
+      <element id="module-output" name="Rz Java Keylogger" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/jnativehook-2.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
