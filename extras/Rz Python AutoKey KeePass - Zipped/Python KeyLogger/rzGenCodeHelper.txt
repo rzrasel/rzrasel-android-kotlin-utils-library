@@ -1,0 +1,129 @@
+
+/*
+  - Create directory inside lib
+    - constants
+    - pages
+    - widgets
+    - helpers
+*/
+
+
+
+
+
+
+                                        (=>|=============================|<=)
+                                        (=>Part - 001|-------------------|<=)
+                                        (=>Main Page|--------------------|<=)
+RZ_NLINE_ALL_RZ
+::====::COMMAND_LINE_01::====::
+RZ_DELAY_EQUAL_150_RZ
+
+RZ_NLINE_ALL_RZ
+
+rasel:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+
+
+// Rz Rasel Tutorial (Rashed - Uz - Zaman)
+import "mat.d:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ:RZ_END_RZ;
+
+stle:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ:MyApp:RZ_END_RZ //RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+                                        (=>|Delete question mark from key. GoToLine: 2(main.dart) end of line|<=)
+
+RZ_NLINE_ALL_RZ
+RZ_SAVE_RZ END
+
+
+                                        (=>|=============================|<=)
+                                        (=>Part - 002|-------------------|<=)
+                                        (=>Main Page|--------------------|<=)
+                                        (=>|Delete question mark from key. GoToLine: 2(main.dart) end of line|<=)
+RZ_NLINE_ALL_RZ
+::====::COMMAND_LINE_02::====::
+RZ_DELAY_EQUAL_150_RZ
+
+RZ_NLINE_ALL_RZ
+
+rasel:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+//RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+void main() => runAp:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ:MyAp:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ:RZ_RIGHT_RZ:RZ_END_RZ; //RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+RZ_SAVE_RZ END
+
+                                        (=>|=============================|<=)
+                                        (=>Part - 003|-------------------|<=)
+                                        (=>Main Page|--------------------|<=)
+                                        (=>|Select Container() and wiat for write. GoToLine: 11(main.dart)|<=)
+RZ_NLINE_ALL_RZ
+::====::COMMAND_LINE_03::====::
+RZ_DELAY_EQUAL_150_RZ
+
+RZ_NLINE_ALL_RZ
+
+rasel:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+
+MatA:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ:
+tit:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ"Rz Rasel Tutorial:RZ_END_RZ
+the:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ:TheDa:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ(
+priSw:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ:Colors.blu:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ, //RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+
+RZ_NLINE_ALL_RZ
+RZ_SAVE_RZ END
+
+
+                                        (=>|=============================|<=)
+                                        (=>Part - 004|-------------------|<=)
+                                        (=>Home Page|--------------------|<=)
+                                        (=>|Starting. GoToLine: 1(home_page.dart)|<=)
+RZ_NLINE_ALL_RZ
+::====::COMMAND_LINE_04::====::
+RZ_DELAY_EQUAL_150_RZ
+
+RZ_NLINE_ALL_RZ
+
+rasel:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+
+
+// Rz Rasel Tutorial (Rashed - Uz - Zaman)
+import "mat.d:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ:RZ_END_RZ;
+
+stle:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ:HomePage:RZ_END_RZ //RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+
+RZ_NLINE_ALL_RZ
+RZ_SAVE_RZ END
+
+
+                                        (=>|=============================|<=)
+                                        (=>Part - 005|-------------------|<=)
+                                        (=>Home Page|--------------------|<=)
+                                        (=>|Set home. GoToLine: 15(main.dart) end of line|<=)
+RZ_NLINE_ALL_RZ
+::====::COMMAND_LINE_05::====::
+RZ_DELAY_EQUAL_150_RZ
+
+RZ_NLINE_ALL_RZ
+
+rasel:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+RZ_NLINE_ALL_RZ
+
+
+//RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+hom:RZ_DELAY_DASH_400_ENTER_DELAY_EQUAL_150_RZ:HomPa:RZ_DELAY_DASH_1500_ENTER_DELAY_EQUAL_150_RZ(RZ_END_RZ //RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ:RZ_BACKSPACE_RZ
+
+
+RZ_NLINE_ALL_RZ
+RZ_SAVE_RZ END
