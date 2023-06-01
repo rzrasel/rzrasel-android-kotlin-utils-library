@@ -1,0 +1,20 @@
+
+{DELAY=150}
+{ENTER}im{DELAY 400}{ENTER}{DELAY=150} pynput{ENTER}
+fro{DELAY 400}{ENTER}{DELAY=150} pynput.keyboard im{DELAY 400}{ENTER}{DELAY=150} Key, Listener{ENTER}{ENTER}{ENTER}
+
+with Li{DELAY 400}{ENTER}{DELAY=150}{(}on_press=onPress, on_release=onRelease{END} as listener:{ENTER}
+liste{ENTER}.join{(}{END}^s//end goto line: 3, end of line^s{DELAY 30000}{DELAY=150}start{BACKSPACE}{BACKSPACE}{BACKSPACE}{BACKSPACE}{BACKSPACE}
+
+
+
+{ENTER}{ENTER}def onPress{(}key{END}:{ENTER}
+print{(}"{{}0{}} pressed{RIGHT}.fo{ENTER}{(}key{RIGHT}{END}{ENTER}
+
+{BACKSPACE}{ENTER}def onRelease{(}key{END}:{ENTER}
+print{(}"{{}0{}} released{RIGHT}.fo{ENTER}{(}key{RIGHT}{END}{ENTER}
+if key == Key.esc:{ENTER}
+re{ENTER} Fa{ENTER}^s
+
+
+

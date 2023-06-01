@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <global>global_value</global>
+    <two>two_value</two>
+    <min_typing_delay_millis>80</min_typing_delay_millis>
+    <max_typing_delay_millis>500</max_typing_delay_millis>
+    <start_typing>CTRL_ALT_A</start_typing>
+    <stop_typing>CTRL_ALT_S</stop_typing>
+</root>
