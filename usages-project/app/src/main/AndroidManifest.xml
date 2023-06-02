@@ -38,6 +38,11 @@
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ViewpagerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
