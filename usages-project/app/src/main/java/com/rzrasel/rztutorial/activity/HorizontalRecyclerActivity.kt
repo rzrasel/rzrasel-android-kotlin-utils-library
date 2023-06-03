@@ -2,14 +2,18 @@ package com.rzrasel.rztutorial.activity
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rzrasel.kotlinutils.AssetAudio
+import com.rzrasel.kotlinutils.AssetFileReader
 import com.rzrasel.kotlinutils.SerializableHelper
+import com.rzrasel.rztutorial.DataModel
 import com.rzrasel.rztutorial.adapter.HorizontalAdapter
 import com.rzrasel.rztutorial.databinding.ActivityHorizontalRecyclerBinding
 import com.rzrasel.rztutorial.enumeration.EnumDashboardMenu
@@ -32,6 +36,7 @@ class HorizontalRecyclerActivity : AppCompatActivity() {
     private lateinit var intentDataModel: IntentDataModel
     private lateinit var dashboardMenuModel: DashboardMenuModel
     private var enumDashboardMenu: EnumDashboardMenu? = EnumDashboardMenu.NONE
+
     //
     private lateinit var horizontalAdapter: HorizontalAdapter
     private var adapterDataList = ArrayList<TutorialDataModel>()
@@ -68,6 +73,17 @@ class HorizontalRecyclerActivity : AppCompatActivity() {
 
     private fun onInitView() {
         horizontalAdapter = HorizontalAdapter(applicationContext, ArrayList())
+            .setOnClickListener(object : HorizontalAdapter.SetOnItemClickListener {
+                override fun setOItemClickListener(
+                    view: View,
+                    itemData: TutorialDataModel,
+                    position: Int
+                ) {
+                    //val item: TutorialDataModel = adapterDataList[position]
+                    println("DEBUG_LOG_PRINT: Item clicked position $position -  ${itemData.bigImagePath}")
+                    onSetLessonProperty(itemData, position)
+                }
+            })
 
         val columnCount: Int = 4
 
@@ -82,19 +98,41 @@ class HorizontalRecyclerActivity : AppCompatActivity() {
 
     private fun modelViewObserver() {
         val factory = ViewModelFactory(LessonDataRepository(LessonData))
-        val viewModel = ViewModelProvider(this@HorizontalRecyclerActivity, factory)[LessonViewModel::class.java]
+        val viewModel =
+            ViewModelProvider(this@HorizontalRecyclerActivity, factory)[LessonViewModel::class.java]
         viewModel.getData(context, enumDashboardMenu)
         viewModel.response.observe(this@HorizontalRecyclerActivity) {
-            when(it) {
+            when (it) {
                 is DataResource.Success -> {
                     adapterDataList = it.value as ArrayList<TutorialDataModel>
                     //println("DEBUG_LOG_PRINT: responseData.sevenDay.size ${adapterDataList.size}")
                     horizontalAdapter.setDataList(adapterDataList)
+                    onSetLessonProperty(adapterDataList[0], 0)
                 }
+
                 is DataResource.Failed -> {}
                 else -> {}
             }
         }
+    }
+
+    private fun onSetLessonProperty(itemData: TutorialDataModel, position: Int) {
+        val drawable: Drawable? =
+            AssetFileReader.drawable(context, itemData.bigImagePath)
+        val sdk: Int = android.os.Build.VERSION.SDK_INT
+        /*drawable?.let {
+            binding.sysLinearLayoutImage.apply {
+                if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    setBackgroundDrawable(drawable)
+                } else {
+                    background = drawable
+                }
+            }
+        }*/
+        drawable.let {
+            binding.sysImageView.setImageDrawable(drawable)
+        }
+        audioPlayer.onPlayAssetAudio(itemData.audioPath)
     }
 
     override fun onPause() {

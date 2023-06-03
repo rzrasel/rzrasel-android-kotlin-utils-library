@@ -11,7 +11,10 @@ import com.rzrasel.rztutorial.DataModel
 import com.rzrasel.rztutorial.databinding.RecyclerviewItemHorizontalBinding
 import com.rzrasel.rztutorial.model.TutorialDataModel
 
-class HorizontalAdapter(val context: Context, private var modelDataList: ArrayList<TutorialDataModel>) :
+class HorizontalAdapter(
+    val context: Context,
+    private var modelDataList: ArrayList<TutorialDataModel>
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var binding: RecyclerviewItemHorizontalBinding
     private lateinit var onItemClickListener: SetOnItemClickListener
@@ -31,7 +34,10 @@ class HorizontalAdapter(val context: Context, private var modelDataList: ArrayLi
     override fun getItemCount() = modelDataList.size
 
     // Usually involves inflating a layout from XML and returning the holder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalAdapter.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): HorizontalAdapter.ViewHolder {
 
         val inflater = LayoutInflater.from(parent.context)
         binding = RecyclerviewItemHorizontalBinding.inflate(inflater, parent, false)
@@ -58,15 +64,15 @@ class HorizontalAdapter(val context: Context, private var modelDataList: ArrayLi
                 sysTextViewTitle.visibility = View.GONE
                 sysTextViewDescription.visibility = View.GONE
             }
-            /*if (onItemClickListener != null) {
+            onItemClickListener.let {
                 itemView.setOnClickListener {
                     onItemClickListener.setOItemClickListener(itemView, item, position)
                 }
-            }*/
+            }
         }
     }
 
     interface SetOnItemClickListener {
-        fun setOItemClickListener(view: View, itemData: DataModel, position: Int)
+        fun setOItemClickListener(view: View, itemData: TutorialDataModel, position: Int)
     }
 }
