@@ -1,0 +1,65 @@
+//|--------------------------|PLUGINS|---------------------------|
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+}
+
+//|----------------------|ANDROID SECTION|-----------------------|
+android {
+    namespace "com.apphiveme.banglaenglishsmartwordbook"
+    compileSdk 33
+
+    //|---------------------|DEFAULT CONFIG|---------------------|
+    defaultConfig {
+        applicationId "com.apphiveme.banglaenglishsmartwordbook"
+        minSdk 16
+        targetSdk 33
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    //|----------------------|BUILD TYPES|-----------------------|
+    buildTypes {
+        //|Build Types - Debug|----------------------------------|
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+        //|Build Types - Release|--------------------------------|
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    //|-----------|COMPILE OPTIONS - JAVA VERSION 11|------------|
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    //|------------|KOTLIN OPTIONS - JAVA VERSION 11|------------|
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    //|-------------|BUILD FEATURES - VIEW BINDING|--------------|
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    //|--------------|SYSTEM DEFINED DEPENDENCIES|---------------|
+    implementation "androidx.core:core-ktx:1.10.1"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+    //
+    //|---------------|USER DEFINED DEPENDENCIES|----------------|
+}

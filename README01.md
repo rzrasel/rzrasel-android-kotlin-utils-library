@@ -36,6 +36,7 @@ Lending operation portal - Flutter web portal.
 QR merchant onboarding portal - Flutter web portal. 
 
 
+Wordbook - Vocabulary
 
 Home Service (Android Java)
 

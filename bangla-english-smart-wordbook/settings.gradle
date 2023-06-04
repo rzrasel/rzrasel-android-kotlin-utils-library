@@ -1,0 +1,22 @@
+//|---------------------|PLUGIN MANAGEMENT|----------------------|
+pluginManagement {
+    //|REPOSITORIES|---------------------------------------------|
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+//|--------------|DEPENDENCY RESOLUTION MANAGEMENT|--------------|
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    //|REPOSITORIES|---------------------------------------------|
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+//|---------------------|ROOT PROJECT NAME|----------------------|
+rootProject.name = "Bangla To English Smart Wordbook"
+//|-----------------------|INCLUDE MODULE|-----------------------|
+include ":app"
