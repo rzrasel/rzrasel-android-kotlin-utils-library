@@ -62,4 +62,16 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
     //
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0"
+    //implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    //|Lifecycle ViewModel Dependency|---------------------------|
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    //|Datastore Preferences Dependency|-------------------------|
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
+    //|Gson|-----------------------------------------------------|
+    implementation "com.google.code.gson:gson:2.8.9"
+    implementation project(path: ":kotlindatastore")
+    implementation project(path: ":kotlinmediaplayer")
+    implementation project(path: ":kotlinutils")
 }
