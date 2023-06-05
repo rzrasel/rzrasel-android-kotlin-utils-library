@@ -13,7 +13,12 @@ $dirList = array(
 ?>
 <?php
 $classAutoloader = new ClassAutoloader($dirList);
+//
 $libDirList = LibraryLoaderConfig::getDirList($dirList);
 $classAutoloader->setDirList($libDirList);
-$classAutoloader->onPrintDirList();
+//
+$modelDirList = MenuLoaderConfig::getDirList($libDirList);
+$classAutoloader->setDirList($modelDirList);
+//
+//$classAutoloader->onPrintDirList();
 ?>

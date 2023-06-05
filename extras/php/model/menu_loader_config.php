@@ -1,9 +1,8 @@
 <?php
-abstract class LibraryLoaderConfig {
-    public const rootDir = "library";
+abstract class MenuLoaderConfig {
+    public const rootDir = "model";
     private const direList = array(
-        "helper",
-        "libs",
+        "menu",
         "utils",
     );
     public static function getDirList($dirList = array()) {
@@ -20,12 +19,4 @@ abstract class LibraryLoaderConfig {
         return array_merge($dirList, $dataList);
     }
 }
-?>
-<?php
-/* $dirList = array(
-    "test",
-    "var",
-);
-$dirList = LibraryLoaderConfig::getDirList($dirList);
-print_r($dirList); */
 ?>

@@ -49,6 +49,8 @@ class ClassAutoloader {
     private function getFileNameList($fileName) {
         $fileNameList = array();
         $fileNameList[] = $fileName;
+        $fileNameList[] = strtolower($fileName);
+        $fileNameList[] = strtoupper($fileName);
         //
         $spacedName = $this->onConvertCamelCase($fileName, " ");
         $fileNameList[] = $spacedName;
@@ -83,4 +85,25 @@ class ClassAutoloader {
 <?php
 /* $obj = new Class1();
 $obj = new Class2(); */
+?>
+<?php
+/* spl_autoload_register('myAutoloader');
+
+function myAutoloader($className)
+{
+    $path = '/path/to/class/';
+    include $path.$className.'.php';
+} */
+?>
+<?php
+/* class ClassAutoloader {
+    public function __construct() {
+        spl_autoload_register(array($this, 'loader'));
+    }
+    private function loader($className) {
+        echo 'Trying to load ', $className, ' via ', __METHOD__, "()\n";
+        include $className . '.php';
+    }
+} */
+//$autoloader = new ClassAutoloader();
 ?>
