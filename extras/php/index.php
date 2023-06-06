@@ -8,4 +8,5 @@ require_once(ROOT_PATH . "autoloader_config.php");
 <?php
 $modelObject = new DbMenuTypeModel();
 $createTableSqlGenerator = new DbCreateTableSqlGenerator();
+$createTableSqlGenerator->onGenerate($modelObject);
 ?>
