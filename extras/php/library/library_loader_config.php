@@ -9,7 +9,7 @@ abstract class LibraryLoaderConfig {
     public static function getDirList($dirList = array()) {
         $dataList = array();
         foreach(self::direList as $key) {
-            $dataList[] = self::rootDir . "/" . $key;
+            $dataList[] = trim(trim(self::rootDir, "/")) . "/" . trim(trim($key, "/"));
         }
         if(empty($dirList)) {
             return $dataList;

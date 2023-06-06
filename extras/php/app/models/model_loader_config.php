@@ -1,9 +1,8 @@
 <?php
-abstract class MenuLoaderConfig {
+abstract class ModelLoaderConfig {
     public const rootDir = "model";
     private const direList = array(
         "menu",
-        "utils",
     );
     public static function getDirList($dirList = array()) {
         $dataList = array();

@@ -12,13 +12,13 @@ $dirList = array(
 );
 ?>
 <?php
-$classAutoloader = new ClassAutoloader($dirList);
+/* $classAutoloader = new ClassAutoloader($dirList);
 //
 $libDirList = LibraryLoaderConfig::getDirList($dirList);
 $classAutoloader->setDirList($libDirList);
 //
-$modelDirList = MenuLoaderConfig::getDirList($libDirList);
-$classAutoloader->setDirList($modelDirList);
+$modelDirList = ModelLoaderConfig::getDirList($libDirList);
+$classAutoloader->setDirList($modelDirList); */
 //
 //$classAutoloader->onPrintDirList();
 ?>
