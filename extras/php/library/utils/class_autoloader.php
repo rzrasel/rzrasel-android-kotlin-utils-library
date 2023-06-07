@@ -1,6 +1,6 @@
 <?php
 class ClassAutoloader {
-    private const extensions = ".php";
+    private const extension = ".php";
     private $dirList = array();
     //
     public function __construct($dirList = array()) {
@@ -30,13 +30,13 @@ class ClassAutoloader {
         echo "<br />";
         echo 'Trying to load ', $className, ' via ', __METHOD__, "()\n"; */
         //include $className . '.php';
-        //echo "EXT-" . self::extensions;
+        //echo "EXT-" . self::extension;
     }
     private function getExistedPath($dirList, $fileList) {
         //file_exists
         foreach($dirList as $dirItem) {
             foreach($fileList as $fileItem) {
-                $filePath = trim($dirItem, "/") . "/" . trim($fileItem, "/") . self::extensions;
+                $filePath = trim($dirItem, "/") . "/" . trim($fileItem, "/") . self::extension;
                 /* echo $filePath;
                 echo "<br />"; */
                 if(file_exists($filePath)) {

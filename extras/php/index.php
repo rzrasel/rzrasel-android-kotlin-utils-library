@@ -1,9 +1,14 @@
 <?php
+defined("BASEPATH") or define("BASEPATH", trim(trim(__DIR__, "/")));
 //defined("ROOT_PATH") or define("ROOT_PATH", trim(__DIR__, "/"));
 defined("ROOT_PATH") or define("ROOT_PATH", "");
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 ?>
 <?php
-require_once(ROOT_PATH . "app/loader/init.php");
+require_once("namespace/UseCase.php");
+//require_once(ROOT_PATH . "app/loader/init.php");
 ?>
 <?php
 /* $modelObject = new DbMenuTypeModel();
@@ -27,7 +32,7 @@ $createTableSqlGenerator->onGenerate($modelObject); */
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?=$_SERVER['DOCUMENT_ROOT']?>
+<!-- <?=$_SERVER['DOCUMENT_ROOT']?> -->
 <!--
 Build a PHP MVC Application: Introduction (Part 1/9)
 https://youtu.be/OsCTzGASImQ?list=PLfdtiltiRHWGXVHXX09fxXDi-DqInchFD
