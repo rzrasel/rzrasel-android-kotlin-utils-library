@@ -1,4 +1,160 @@
 {
+  "days_of_the_week": [
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "Saturday",
+      "slug": "saturday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_saturday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_saturday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_saturday.mp3"
+    },
+    {
+      "bengali": "\u09b0\u09ac\u09bf\u09ac\u09be\u09b0",
+      "english": "Sunday",
+      "slug": "sunday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_sunday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_sunday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_sunday.mp3"
+    },
+    {
+      "bengali": "\u09b8\u09cb\u09ae\u09ac\u09be\u09b0",
+      "english": "Monday",
+      "slug": "monday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_monday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_monday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_monday.mp3"
+    },
+    {
+      "bengali": "\u09ae\u0999\u09cd\u0997\u09b2\u09ac\u09be\u09b0",
+      "english": "Tuesday",
+      "slug": "tuesday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_tuesday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_tuesday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_tuesday.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c1\u09a7\u09ac\u09be\u09b0",
+      "english": "Wednesday",
+      "slug": "wednesday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_wednesday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_wednesday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_wednesday.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
+      "english": "Thursday",
+      "slug": "thursday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_thursday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_thursday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_thursday.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09c1\u0995\u09cd\u09b0\u09ac\u09be\u09b0",
+      "english": "Friday",
+      "slug": "friday",
+      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_friday.png",
+      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_friday.png",
+      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_friday.mp3"
+    }
+  ],
+  "months_of_the_year": [
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "January",
+      "slug": "january",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "February",
+      "slug": "february",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "March",
+      "slug": "march",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "April",
+      "slug": "april",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "May",
+      "slug": "may",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "June",
+      "slug": "june",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "July",
+      "slug": "july",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "August",
+      "slug": "august",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "September",
+      "slug": "september",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "October",
+      "slug": "october",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "November",
+      "slug": "november",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    },
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "December",
+      "slug": "december",
+      "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
+    }
+  ],
   "human_body_part": [
     {
       "bengali": "\u0995\u09be\u09a8",
@@ -383,64 +539,6 @@
       "big_image_path": "big-image.png",
       "small_image_path": "small-image.png",
       "audio_path": "audio.mp3"
-    }
-  ],
-  "seven_day": [
-    {
-      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
-      "english": "Saturday",
-      "slug": "saturday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_saturday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_saturday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_saturday.mp3"
-    },
-    {
-      "bengali": "\u09b0\u09ac\u09bf\u09ac\u09be\u09b0",
-      "english": "Sunday",
-      "slug": "sunday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_sunday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_sunday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_sunday.mp3"
-    },
-    {
-      "bengali": "\u09b8\u09cb\u09ae\u09ac\u09be\u09b0",
-      "english": "Monday",
-      "slug": "monday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_monday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_monday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_monday.mp3"
-    },
-    {
-      "bengali": "\u09ae\u0999\u09cd\u0997\u09b2\u09ac\u09be\u09b0",
-      "english": "Tuesday",
-      "slug": "tuesday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_tuesday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_tuesday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_tuesday.mp3"
-    },
-    {
-      "bengali": "\u09ac\u09c1\u09a7\u09ac\u09be\u09b0",
-      "english": "Wednesday",
-      "slug": "wednesday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_wednesday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_wednesday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_wednesday.mp3"
-    },
-    {
-      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
-      "english": "Thursday",
-      "slug": "thursday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_thursday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_thursday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_thursday.mp3"
-    },
-    {
-      "bengali": "\u09b6\u09c1\u0995\u09cd\u09b0\u09ac\u09be\u09b0",
-      "english": "Friday",
-      "slug": "friday",
-      "big_image_path": "images\/lesson\/bnsevendays\/bnsevendaysbig_friday.png",
-      "small_image_path": "images\/lesson\/bnsevendays\/bnsevendayssmall_friday.png",
-      "audio_path": "audios\/lesson\/bnsevendays\/bnsevendaysaudio_friday.mp3"
     }
   ]
 }

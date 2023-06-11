@@ -9,10 +9,12 @@ import com.rzrasel.kotlinutils.ReadJsonFile
 import java.io.Serializable
 
 data class LessonWrapperDataModel(
+    @SerializedName("days_of_the_week")
+    var daysOfTheWeek: ArrayList<LessonDataModel> = arrayListOf(),
+    @SerializedName("months_of_the_year")
+    var monthsOfTheYear: ArrayList<LessonDataModel> = arrayListOf(),
     @SerializedName("human_body_part")
     var humanBodyPart: ArrayList<LessonDataModel> = arrayListOf(),
-    @SerializedName("seven_day")
-    var sevenDay: ArrayList<LessonDataModel> = arrayListOf(),
 ): Serializable
 
 object LessonData {

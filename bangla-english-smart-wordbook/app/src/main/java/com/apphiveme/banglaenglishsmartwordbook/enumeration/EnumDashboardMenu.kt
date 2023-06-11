@@ -2,18 +2,14 @@ package com.apphiveme.banglaenglishsmartwordbook.enumeration
 
 import android.util.Log
 
-enum class EnumDashboardMenu {
+enum class EnumDashboardMenu(slug: String, serial: Int) {
     DAYS_OF_THE_WEEK("days_of_the_week", 1),
-    HUMAN_BODY_PARTS("human_body_parts", 2),
+    MONTHS_OF_THE_YEAR("months_of_the_year", 2),
+    HUMAN_BODY_PARTS("human_body_parts", -3),
     NONE("none", -1);
 
-    var slug: String? = null
-    var id: Int? = null
-
-    constructor(slug: String, id: Int) {
-        this.slug = slug
-        this.id = id
-    }
+    var slug: String? = slug
+    var serial: Int? = serial
 
     companion object {
         /*fun fromValue(value: String) {

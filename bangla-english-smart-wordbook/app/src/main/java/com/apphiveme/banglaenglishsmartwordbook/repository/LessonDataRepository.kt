@@ -16,9 +16,12 @@ class LessonDataRepository(private val api: LessonData) : BaseRepository() {
                 when (it) {
                     EnumDashboardMenu.DAYS_OF_THE_WEEK -> {
                         val data: LessonWrapperDataModel = api.getData(context)
-                        data.sevenDay
+                        data.daysOfTheWeek
                     }
-
+                    EnumDashboardMenu.MONTHS_OF_THE_YEAR -> {
+                        val data: LessonWrapperDataModel = api.getData(context)
+                        data.monthsOfTheYear
+                    }
                     else -> {
                         DataResource.Failed(null)
                     }

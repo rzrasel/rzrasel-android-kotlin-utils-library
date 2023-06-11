@@ -41,14 +41,12 @@ class DashboardActivity : AppCompatActivity() {
         //
         onInitListView()
         onInitGridView()
-        modelViewObserver()
+        observeModelView()
     }
 
     private fun onInitListView() {
         dashboardMenuAdapter = DashboardMenuAdapter(context, ArrayList())
             .setOnClickListener(itemClickListener)
-
-        val columnCount: Int = 4
 
         binding.sysRecyclerView.apply {
             setHasFixedSize(true)
@@ -62,7 +60,7 @@ class DashboardActivity : AppCompatActivity() {
         dashboardMenuAdapter = DashboardMenuAdapter(context, ArrayList())
             .setOnClickListener(itemClickListener)
 
-        val columnCount: Int = 1
+        val columnCount: Int = 2
 
         binding.sysRecyclerView.apply {
             setHasFixedSize(true)
@@ -72,7 +70,7 @@ class DashboardActivity : AppCompatActivity() {
         //RecyclerViewHelper.onGridColumnCount(context, binding.sysRecyclerView, gridItemWidth, 0)
     }
 
-    private fun modelViewObserver() {
+    private fun observeModelView() {
         val factory = ViewModelFactory(DashboardMenuRepository(DashboardMenuData))
         val viewModel =
             ViewModelProvider(this@DashboardActivity, factory)[DashboardViewModel::class.java]
@@ -104,11 +102,16 @@ class DashboardActivity : AppCompatActivity() {
             val dashboardMenu: EnumDashboardMenu? = EnumDashboardMenu.findSlug(itemData.slug)
             if (dashboardMenu != null) {
                 var intent: Intent? = null
-                if (dashboardMenu == EnumDashboardMenu.DAYS_OF_THE_WEEK) {
+                /*if (dashboardMenu == EnumDashboardMenu.DAYS_OF_THE_WEEK) {
+                    intent = Intent(context, HorizontalLessonActivity::class.java)
+                } else if (dashboardMenu == EnumDashboardMenu.MONTHS_OF_THE_YEAR) {
+                    intent = Intent(context, HorizontalLessonActivity::class.java)
+                }*/
+                if(dashboardMenu.serial!! > 0) {
                     intent = Intent(context, HorizontalLessonActivity::class.java)
                 }
-                intent.let { intent1 ->
-                    intent1?.apply {
+                intent.let { letIntent ->
+                    letIntent?.apply {
                         val intentDataModel: IntentDataModel = IntentDataModel(
                             itemData
                         )

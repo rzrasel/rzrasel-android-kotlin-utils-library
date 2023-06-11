@@ -63,7 +63,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
             }
         }
         onInitView()
-        modelViewObserver()
+        observerModelView()
         audioPlayer = ProAudioPlayer.Builder().with(activity).build(context)
         //audioPlayer.onPlayAssetAudio("audio/alpha_bn_consonant_1_type_1.mp3")
     }
@@ -78,7 +78,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
                 ) {
                     //val item: TutorialDataModel = adapterDataList[position]
                     println("DEBUG_LOG_PRINT: Item clicked position $position -  ${itemData.bigImagePath}")
-                    onSetLessonProperty(itemData, position)
+                    playLesson(itemData, position)
                 }
             })
 
@@ -93,7 +93,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
         horizontalLessonAdapter.setDataList(adapterDataList)
     }
 
-    private fun modelViewObserver() {
+    private fun observerModelView() {
         val factory = ViewModelFactory(LessonDataRepository(LessonData))
         val viewModel =
             ViewModelProvider(this@HorizontalLessonActivity, factory)[LessonViewModel::class.java]
@@ -104,7 +104,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
                     adapterDataList = it.value as ArrayList<LessonDataModel>
                     //println("DEBUG_LOG_PRINT: responseData.sevenDay.size ${adapterDataList.size}")
                     horizontalLessonAdapter.setDataList(adapterDataList)
-                    onSetLessonProperty(adapterDataList[0], 0)
+                    playLesson(adapterDataList[0], 0)
                 }
 
                 is DataResource.Failed -> {}
@@ -113,7 +113,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
         }
     }
 
-    private fun onSetLessonProperty(itemData: LessonDataModel, position: Int) {
+    private fun playLesson(itemData: LessonDataModel, position: Int) {
         val drawable: Drawable? =
             AssetFileReader.drawable(context, itemData.bigImagePath)
         val sdk: Int = android.os.Build.VERSION.SDK_INT
