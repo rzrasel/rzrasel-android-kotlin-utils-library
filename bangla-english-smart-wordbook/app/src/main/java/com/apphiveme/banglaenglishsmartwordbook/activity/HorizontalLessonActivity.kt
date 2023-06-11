@@ -114,6 +114,7 @@ class HorizontalLessonActivity : AppCompatActivity() {
     }
 
     private fun playLesson(itemData: LessonDataModel, position: Int) {
+        return
         val drawable: Drawable? =
             AssetFileReader.drawable(context, itemData.bigImagePath)
         val sdk: Int = android.os.Build.VERSION.SDK_INT

@@ -63,7 +63,7 @@
       "english": "January",
       "slug": "january",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_january.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -71,7 +71,7 @@
       "english": "February",
       "slug": "february",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_february.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -79,7 +79,7 @@
       "english": "March",
       "slug": "march",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_march.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -87,7 +87,7 @@
       "english": "April",
       "slug": "april",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_april.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -95,7 +95,7 @@
       "english": "May",
       "slug": "may",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_may.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -103,7 +103,7 @@
       "english": "June",
       "slug": "june",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_june.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -111,7 +111,7 @@
       "english": "July",
       "slug": "july",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_july.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -119,7 +119,7 @@
       "english": "August",
       "slug": "august",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_august.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -127,7 +127,7 @@
       "english": "September",
       "slug": "september",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_september.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -135,7 +135,7 @@
       "english": "October",
       "slug": "october",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_october.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -143,7 +143,7 @@
       "english": "November",
       "slug": "november",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_november.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     },
     {
@@ -151,7 +151,7 @@
       "english": "December",
       "slug": "december",
       "big_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_big.png",
-      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonths_small.png",
+      "small_image_path": "images\/lesson\/bntwelvemonths\/bntwelvemonthssmall_december.png",
       "audio_path": "audios\/lesson\/bntwelvemonths\/bntwelvemonths_audio.mp3"
     }
   ],
