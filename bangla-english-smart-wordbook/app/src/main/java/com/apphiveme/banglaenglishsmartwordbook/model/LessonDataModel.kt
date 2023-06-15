@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class LessonDataModel(
+    @SerializedName("id")
+    var id: Int = -1,
     @SerializedName("bengali")
     var bengali: String? = null,
     @SerializedName("english")

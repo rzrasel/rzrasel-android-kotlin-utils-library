@@ -19,6 +19,8 @@ import com.apphiveme.banglaenglishsmartwordbook.model.IntentDataModel
 import com.apphiveme.banglaenglishsmartwordbook.network.DataResource
 import com.apphiveme.banglaenglishsmartwordbook.repository.DashboardMenuRepository
 import com.apphiveme.banglaenglishsmartwordbook.viewmodel.DashboardViewModel
+import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import com.rzrasel.kotlinutils.ShowToast
 import java.io.Serializable
 
@@ -42,6 +44,25 @@ class DashboardActivity : AppCompatActivity() {
         onInitListView()
         onInitGridView()
         observeModelView()
+        //onJsonTest()
+    }
+
+    private fun onJsonTest() {
+        var testJson: MutableMap<String, ArrayList<TestModel>> = mutableMapOf<String, ArrayList<TestModel>>()
+        var testModel: ArrayList<TestModel> = ArrayList<TestModel>()
+        testModel.add(TestModel("bangla1", "english1"))
+        testModel.add(TestModel("bangla2", "english2"))
+        testModel.add(TestModel("bangla3", "english3"))
+        testJson["bangla"] = testModel
+        //
+        testModel = ArrayList<TestModel>()
+        testModel.add(TestModel("bangla11", "english11"))
+        testModel.add(TestModel("bangla21", "english21"))
+        testModel.add(TestModel("bangla31", "english31"))
+        testJson["english"] = testModel
+        //
+        val gson: Gson = Gson()
+        println(gson.toJson(testJson).toString())
     }
 
     private fun onInitListView() {
@@ -132,3 +153,10 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 }
+
+data class TestModel(
+    @SerializedName("bengali")
+    var bengali: String? = null,
+    @SerializedName("english")
+    var english: String? = null,
+)

@@ -13,7 +13,13 @@ class LessonDataRepository(private val api: LessonData) : BaseRepository() {
                 /*when {
                     it.slug
                 }*/
-                when (it) {
+                val responseData: LessonWrapperDataModel = api.getData(context)
+                if(responseData.dataModel.containsKey(enumDashboardMenu.slug)) {
+                    responseData.dataModel[enumDashboardMenu.slug]
+                } else {
+                    DataResource.Failed(null)
+                }
+                /*when (it) {
                     EnumDashboardMenu.DAYS_OF_THE_WEEK -> {
                         val data: LessonWrapperDataModel = api.getData(context)
                         data.daysOfTheWeek
@@ -25,7 +31,7 @@ class LessonDataRepository(private val api: LessonData) : BaseRepository() {
                     else -> {
                         DataResource.Failed(null)
                     }
-                }
+                }*/
             }
         }
     /*fun getMenuData(context: Context) = flow {

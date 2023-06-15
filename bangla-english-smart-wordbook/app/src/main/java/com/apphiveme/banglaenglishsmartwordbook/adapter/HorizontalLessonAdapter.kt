@@ -10,8 +10,9 @@ import com.apphiveme.banglaenglishsmartwordbook.databinding.RecyclerviewItemHori
 import com.apphiveme.banglaenglishsmartwordbook.model.LessonDataModel
 import com.rzrasel.kotlinutils.AssetFileReader
 
-class HorizontalLessonAdapter(val context: Context,
-                              private var modelDataList: ArrayList<LessonDataModel>
+class HorizontalLessonAdapter(
+    val context: Context,
+    private var modelDataList: ArrayList<LessonDataModel>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var binding: RecyclerviewItemHorizontalLessonBinding
@@ -29,7 +30,18 @@ class HorizontalLessonAdapter(val context: Context,
     }
 
     //  total count of items in the list
-    override fun getItemCount() = modelDataList.size
+    //override fun getItemCount() = modelDataList.size
+    override fun getItemCount(): Int {
+        return modelDataList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
 
     // Usually involves inflating a layout from XML and returning the holder
     override fun onCreateViewHolder(
@@ -50,8 +62,13 @@ class HorizontalLessonAdapter(val context: Context,
     inner class ViewHolder(itemView: RecyclerviewItemHorizontalLessonBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         fun bind(item: LessonDataModel, position: Int) {
+            if(item.id < 0) {
+                //
+            }
             binding.apply {
+                itemView.tag = position + 1
                 val drawable: Drawable? = AssetFileReader.drawable(context, item.smallImagePath)
+                println("DEBUG_LOG_PRINT: small image path " + item.smallImagePath)
                 drawable?.let {
                     sysImageView.setImageDrawable(drawable)
                 } ?: {
