@@ -56,8 +56,20 @@ class HorizontalLessonAdapter(
 
     // Involves populating data into the item through holder
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(modelDataList[position], position)
+        val viewHolder: ViewHolder = holder as ViewHolder
+        viewHolder.apply {
+            setIsRecyclable(false)
+            bind(modelDataList[position], position)
+        }
     }
+
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        super.onViewRecycled(holder)
+    }
+    /*fun onViewRecycled(holder: RecyclerView.ViewHolder?) {
+        // Uncaching VH
+        mBoundViewHolders.remove(holder)
+    }*/
 
     inner class ViewHolder(itemView: RecyclerviewItemHorizontalLessonBinding) :
         RecyclerView.ViewHolder(itemView.root) {
@@ -91,3 +103,6 @@ class HorizontalLessonAdapter(
         fun setOItemClickListener(view: View, itemData: LessonDataModel, position: Int)
     }
 }
+
+//https://support.backendless.com/t/why-recyclerview-items-duplicate/7997
+//https://medium.com/swlh/build-better-and-clean-recyclerview-adapter-with-kiel-a129882c1e1
