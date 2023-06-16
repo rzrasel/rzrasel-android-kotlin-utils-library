@@ -25,5 +25,14 @@
     "slug": "six_season",
     "bn_image_path": "images\/menu\/bn_six_season.png",
     "en_image_path": "images\/menu\/bnmonthsofthe_year.svg"
+  },
+  {
+    "bn_title": "\u09b8\u09aa\u09cd\u09a4\u09be\u09b9\u09c7\u09b0 \u09b8\u09be\u09a4 \u09a6\u09bf\u09a8\u09c7\u09b0 \u09a8\u09be\u09ae",
+    "en_title": "Solar System Planets",
+    "bn_description": "",
+    "en_description": "",
+    "slug": "solar_system_planets",
+    "bn_image_path": "images\/menu\/bnsolarsystem_planet.png",
+    "en_image_path": "images\/menu\/bnmonthsofthe_year.svg"
   }
 ]

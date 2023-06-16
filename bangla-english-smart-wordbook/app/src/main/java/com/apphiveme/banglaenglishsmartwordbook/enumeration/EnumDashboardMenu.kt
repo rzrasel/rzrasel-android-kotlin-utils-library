@@ -6,6 +6,7 @@ enum class EnumDashboardMenu(slug: String, serial: Int) {
     DAYS_OF_THE_WEEK("days_of_the_week", 1),
     MONTHS_OF_THE_YEAR("months_of_the_year", 2),
     SIX_SEASON("six_season", 3),
+    SOLAR_SYSTEM_PLANETS("solar_system_planets", 4),
     HUMAN_BODY_PARTS("human_body_parts", -3),
     NONE("none", -1);
 

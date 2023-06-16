@@ -217,6 +217,80 @@
       "audio_path": "lesson\/bnsixseason\/bn_spring.mp3"
     }
   ],
+  "solar_system_planets": [
+    {
+      "bengali": "\u09b6\u09a8\u09bf\u09ac\u09be\u09b0",
+      "english": "Mercury",
+      "slug": "mercury",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_mercury_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_mercury_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_mercury.mp3"
+    },
+    {
+      "bengali": "\u09b0\u09ac\u09bf\u09ac\u09be\u09b0",
+      "english": "Venus",
+      "slug": "venus",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_venus_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_venus_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_venus.mp3"
+    },
+    {
+      "bengali": "\u09b8\u09cb\u09ae\u09ac\u09be\u09b0",
+      "english": "Earth",
+      "slug": "earth",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_earth_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_earth_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_earth.mp3"
+    },
+    {
+      "bengali": "\u09ae\u0999\u09cd\u0997\u09b2\u09ac\u09be\u09b0",
+      "english": "Mars",
+      "slug": "mars",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_mars_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_mars_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_mars.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c1\u09a7\u09ac\u09be\u09b0",
+      "english": "Jupiter",
+      "slug": "jupiter",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_jupiter_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_jupiter_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_jupiter.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
+      "english": "Saturn",
+      "slug": "saturn",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_saturn_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_saturn_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_saturn.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
+      "english": "Uranus",
+      "slug": "uranus",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_uranus_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_uranus_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_uranus.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
+      "english": "Neptune",
+      "slug": "neptune",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_neptune_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_neptune_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_neptune.mp3"
+    },
+    {
+      "bengali": "\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\u09ac\u09be\u09b0",
+      "english": "Pluto",
+      "slug": "pluto",
+      "big_image_path": "lesson\/bnsolarsystemplanets\/bn_pluto_big.png",
+      "small_image_path": "lesson\/bnsolarsystemplanets\/bn_pluto_small.png",
+      "audio_path": "lesson\/bnsolarsystemplanets\/bn_pluto.mp3"
+    }
+  ],
   "human_body_part": [
     {
       "bengali": "\u0995\u09be\u09a8",
