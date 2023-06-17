@@ -43,14 +43,14 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }*/
-    //|-----------|COMPILE OPTIONS - JAVA VERSION 11|------------|
+    //|-----------|COMPILE OPTIONS - JAVA VERSION 17|------------|
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-    //|------------|KOTLIN OPTIONS - JAVA VERSION 11|------------|
+    //|------------|KOTLIN OPTIONS - JAVA VERSION 17|------------|
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
