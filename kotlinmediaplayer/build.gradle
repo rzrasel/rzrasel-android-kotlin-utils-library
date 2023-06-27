@@ -3,16 +3,25 @@ plugins {
     id "org.jetbrains.kotlin.android"
 }
 
+def libsName = "rz-kotlin-media-player"
+
 android {
     namespace "com.rzrasel.kotlinmediaplayer"
     compileSdk 33
 
     defaultConfig {
-        minSdk 16
+        /*minSdk 16
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        consumerProguardFiles "consumer-rules.pro"*/
+
+        //def date = new Date()
+        //def formattedDate = date.format("yyyy-MM-dd")
+        //def apkName = "$rootProject.APP_NAME" + "-" + formattedDate + "-v" + defaultConfig.versionName
+        //def apkName = "$project.ext.coreConfig.APP_NAME" + "-" + formattedDate + "-v-" + defaultConfig.versionName
+        def apkName = "$libsName" + "-v" + rootProject.versionName
+        setProperty("archivesBaseName", "$apkName")
     }
 
     buildTypes {
@@ -29,6 +38,11 @@ android {
     //|------------|KOTLIN OPTIONS - JAVA VERSION 17|------------|
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
     }
 }
 

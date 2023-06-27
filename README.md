@@ -21,3 +21,6 @@ git rm -rf .idea;
 git commit -m "delete .idea";
 git push;
 ```
+
+### Library AAR File
+[Rz Rasel Kotlin Library Utils AAR](https://github.com/rzrasel/rzrasel-kotlin-utils-libs-aar)

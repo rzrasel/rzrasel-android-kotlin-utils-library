@@ -3,7 +3,7 @@ package com.rzrasel.kotlinutils
 import android.content.Context
 
 object RouteClass {
-    private fun getClassFromName(context: Context, className: String): Class<out Any> {
+    /*private fun getClassFromName(context: Context, className: String): Class<out Any> {
         //val fullClassName = "${context.packageName}"
         //val fullClassName = "${context.javaClass}"
         val fullPackageClassName = "${context.javaClass.name}"
@@ -15,7 +15,7 @@ object RouteClass {
     }
     fun<T> getClass(context: Context, className: String): Class<T> {
         return getClassFromName(context, className) as Class<T>
-    }
+    }*/
     /*fun getClass(context: Context, className: String): KClass<out Any>? {
         val fullClassName = "${context.javaClass}"
         println("DEBUG_LOG_PRINT: getClass $fullClassName")

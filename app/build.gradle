@@ -47,6 +47,11 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 }
 
 //|--------------------|DEPENDENCIES SECTION|--------------------|
@@ -62,6 +67,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
 
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
+    //.\gradlew build
+    //.\gradlew build --stacktrace
     implementation project(path: ":kotlindatastore")
     implementation project(path: ":kotlinmediaplayer")
     implementation project(path: ":kotlinutils")

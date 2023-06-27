@@ -13,3 +13,7 @@ apply plugin: "maven-publish"
 java {
     withSourcesJar()
 }
+
+ext {
+    versionName = "1.0.0"
+}
