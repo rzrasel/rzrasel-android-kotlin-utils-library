@@ -1,4 +1,4 @@
-package com.rzrasel.kotlinutils
+package com.rzrasel.kotlinutils.resources
 
 import android.content.Context
 import android.graphics.drawable.Drawable

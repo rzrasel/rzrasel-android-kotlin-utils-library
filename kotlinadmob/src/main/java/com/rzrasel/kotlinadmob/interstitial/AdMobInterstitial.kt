@@ -1,4 +1,4 @@
-package com.rzrasel.kotlinadmob
+package com.rzrasel.kotlinadmob.interstitial
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -63,7 +63,7 @@ class AdMobInterstitial private constructor(
         interstitialAd.let { itInterstitialAd ->
             itInterstitialAd?.show(activity)
         } ?: run {
-            println("DEBUG_LOG_PRINT: The interstitial ad wasn't ready yet")
+            //println("DEBUG_LOG_PRINT: The interstitial ad wasn't ready yet")
         }
         return this
     }
@@ -72,7 +72,7 @@ class AdMobInterstitial private constructor(
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(context, adUnitId, adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdLoaded(argInterstitialAd: InterstitialAd) {
-                println("DEBUG_LOG_PRINT: The interstitial ad loaded")
+                //println("DEBUG_LOG_PRINT: The interstitial ad loaded")
                 interstitialAd = argInterstitialAd
                 interstitialAd?.fullScreenContentCallback = fullScreenContentCallback
                 //showInterstitialAd()
@@ -84,7 +84,7 @@ class AdMobInterstitial private constructor(
             }
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
-                println("DEBUG_LOG_PRINT: Interstitial onAdFailedToLoad ${adError.message}")
+                //println("DEBUG_LOG_PRINT: Interstitial onAdFailedToLoad ${adError.message}")
                 //var errorMessage = "RzAdMob Error: ${adError.toString()} ${adError.message} ${adError.code}"
                 interstitialAd = null
                 //finish()
@@ -104,13 +104,13 @@ class AdMobInterstitial private constructor(
 
         override fun onAdShowedFullScreenContent() {
             super.onAdShowedFullScreenContent()
-            println("DEBUG_LOG_PRINT: Interstitial onAdShowedFullScreenContent")
+            //println("DEBUG_LOG_PRINT: Interstitial onAdShowedFullScreenContent")
         }
 
         override fun onAdDismissedFullScreenContent() {
             super.onAdDismissedFullScreenContent()
             interstitialAd = null
-            println("DEBUG_LOG_PRINT: Interstitial onAdDismissedFullScreenContent")
+            //println("DEBUG_LOG_PRINT: Interstitial onAdDismissedFullScreenContent")
             /*adMobState = 2
             onStartTimer(2000)*/
             //countDownTimer?.start()
@@ -120,7 +120,7 @@ class AdMobInterstitial private constructor(
         override fun onAdFailedToShowFullScreenContent(adError: AdError) {
             super.onAdFailedToShowFullScreenContent(adError)
             //Log.d(TAG, "RzAdMob Ad failed to show. Error: ${adError.message}")
-            println("DEBUG_LOG_PRINT: Interstitial onAdFailedToShowFullScreenContent ${adError.message}")
+            //println("DEBUG_LOG_PRINT: Interstitial onAdFailedToShowFullScreenContent ${adError.message}")
         }
 
     }
