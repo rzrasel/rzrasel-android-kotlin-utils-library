@@ -1,4 +1,4 @@
-package com.rzrasel.kotlinutils
+package com.rzrasel.kotlinutils.assets
 
 import android.content.Context
 import android.content.res.AssetFileDescriptor

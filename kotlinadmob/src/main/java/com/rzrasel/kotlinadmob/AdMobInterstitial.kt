@@ -17,7 +17,7 @@ class AdMobInterstitial private constructor(
     private var context: Context
 ) {
     private var interstitialAd: InterstitialAd? = null
-    private lateinit var adMobListener: AdMobListener
+    private var adMobListener: AdMobListener? = null
 
     //private constructor()
 
@@ -80,9 +80,7 @@ class AdMobInterstitial private constructor(
                 //onStartTimer(DELAY_MILLISECONDS)
                 //countDownTimer?.start()
                 //show()
-                adMobListener.let { itAdMobListener ->
-                    itAdMobListener.onAdLoaded(interstitialAd!!)
-                }
+                adMobListener?.onAdLoaded(interstitialAd!!)
             }
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
@@ -90,9 +88,7 @@ class AdMobInterstitial private constructor(
                 //var errorMessage = "RzAdMob Error: ${adError.toString()} ${adError.message} ${adError.code}"
                 interstitialAd = null
                 //finish()
-                adMobListener.let { itAdMobListener ->
-                    itAdMobListener.onAdLoadFailed(adError)
-                }
+                adMobListener?.onAdLoadFailed(adError)
             }
         })
         return this
@@ -118,9 +114,7 @@ class AdMobInterstitial private constructor(
             /*adMobState = 2
             onStartTimer(2000)*/
             //countDownTimer?.start()
-            adMobListener.let { itAdMobListener ->
-                itAdMobListener.onAdDismissed()
-            }
+            adMobListener?.onAdDismissed()
         }
 
         override fun onAdFailedToShowFullScreenContent(adError: AdError) {
