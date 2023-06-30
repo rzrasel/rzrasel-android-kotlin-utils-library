@@ -3,14 +3,14 @@ plugins {
     id "org.jetbrains.kotlin.android"
 }
 
-def libsName = "rz-kotlin-media-player"
+def libsName = "rz-kotlin-admob"
 
 android {
-    namespace "com.rzrasel.kotlinmediaplayer"
+    namespace "com.rzrasel.kotlinadmob"
     compileSdk 33
 
     defaultConfig {
-        /*minSdk 16
+        /*minSdk 19
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,19 +39,19 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
 }
 
 dependencies {
 
+    //|--------------|SYSTEM DEFINED DEPENDENCIES|---------------|
     implementation "androidx.core:core-ktx:1.10.1"
     implementation "androidx.appcompat:appcompat:1.6.1"
     implementation "com.google.android.material:material:1.9.0"
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+
+    //|---------------|USER DEFINED DEPENDENCIES|----------------|
+    //|AdMob Mobile Ads SDK|-------------------------------------|
+    implementation "com.google.android.gms:play-services-ads:22.1.0"
 }

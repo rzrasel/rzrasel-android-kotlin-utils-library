@@ -14,6 +14,7 @@ dependencyResolutionManagement {
 }
 //rootProject.name = "Kotlin Library Usages Project"
 include ":app"
+include ":kotlinadmob"
 include ":kotlindatastore"
 include ":kotlinmediaplayer"
 include ":kotlinutils"

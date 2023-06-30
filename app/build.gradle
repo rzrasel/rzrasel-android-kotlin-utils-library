@@ -17,8 +17,8 @@ android {
         applicationId "com.rzrasel.appusages"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "0.0.1"
+        versionCode 2
+        versionName "0.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,14 +38,14 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
-    //|-----------|COMPILE OPTIONS - JAVA VERSION 17|------------|
+    //|-----------|COMPILE OPTIONS - JAVA VERSION 19|------------|
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_19
+        targetCompatibility JavaVersion.VERSION_19
     }
-    //|------------|KOTLIN OPTIONS - JAVA VERSION 17|------------|
+    //|------------|KOTLIN OPTIONS - JAVA VERSION 19|------------|
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_19.toString()
     }
 
     lintOptions {
@@ -69,6 +69,8 @@ dependencies {
     //|---------------|USER DEFINED DEPENDENCIES|----------------|
     //.\gradlew build
     //.\gradlew build --stacktrace
+    //.\gradlew clean build
+    implementation project(path: ":kotlinadmob")
     implementation project(path: ":kotlindatastore")
     implementation project(path: ":kotlinmediaplayer")
     implementation project(path: ":kotlinutils")
