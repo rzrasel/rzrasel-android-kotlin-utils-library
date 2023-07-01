@@ -59,14 +59,17 @@ class AdMobInterstitialHelper private constructor(
         adPropertyModel = getAdPropertyModel()
         adPropertyModel.lastEventName = eventName
         when (eventType) {
-            EventType.CLICK_EVENT ->
+            EventType.CLICK_EVENT -> {
                 adPropertyModel.clickEvent += 1
+            }
 
-            EventType.WINDOW_OPEN_EVENT ->
+            EventType.WINDOW_OPEN_EVENT -> {
                 adPropertyModel.windowOpenEvent += 1
+            }
 
-            EventType.WINDOW_CLOSE_EVENT ->
+            EventType.WINDOW_CLOSE_EVENT -> {
                 adPropertyModel.windowCloseEvent += 1
+            }
         }
         adPropertyModel.totalEvent += 1
         //adPropertyModel.totalEvent += 30

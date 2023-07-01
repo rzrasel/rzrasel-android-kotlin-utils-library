@@ -26,6 +26,13 @@ class AdMobInterstitial private constructor(
         @Volatile
         private var instance: AdMobInterstitial? = null
 
+        fun getInstance(activity: Activity, context: Context): AdMobInterstitial =
+            instance ?: synchronized(this) {
+                val newInstance =
+                    instance ?: AdMobInterstitial(activity, context).also { instance = it }
+                newInstance
+            }
+
         /*@Synchronized
         fun getInstance(): AdMobInterstitial {
             if (instance == null) {
@@ -35,12 +42,6 @@ class AdMobInterstitial private constructor(
             }
             return instance!!
         }*/
-        fun getInstance(activity: Activity, context: Context): AdMobInterstitial =
-            instance ?: synchronized(this) {
-                val newInstance =
-                    instance ?: AdMobInterstitial(activity, context).also { instance = it }
-                newInstance
-            }
     }
 
     fun setAdMobListener(adMobListener: AdMobListener): AdMobInterstitial {

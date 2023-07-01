@@ -3,28 +3,44 @@ package com.rzrasel.kotlinmediaplayer
 import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.IOException
 import java.lang.Exception
 
 object AssetAudio {
-    private fun descriptor(context: Context, fileName: String): AssetFileDescriptor =
-        context.assets.openFd(fileName)
+    private suspend fun descriptor(context: Context, fileName: String): AssetFileDescriptor? =
+        withContext(
+            Dispatchers.IO
+        ) {
+            try {
+                context.assets.openFd(fileName)
+            } catch (ex: IOException) {
+                null
+            }
+        }
 
-    fun onLoadMedia(context: Context, player: MediaPlayer, fileName: String) {
+    suspend fun onLoadMedia(context: Context, player: MediaPlayer, fileName: String) {
         try {
-            val descriptor: AssetFileDescriptor = descriptor(context, fileName)
-            player.setDataSource(
-                descriptor.fileDescriptor,
-                descriptor.startOffset,
-                descriptor.length
-            )
-            closeDescriptor(descriptor)
-        } catch (e: Exception) {
-            println("DEBUG_LOG_PRINT: AssetAudio printStackTrace")
-            e.printStackTrace()
+            val descriptor: AssetFileDescriptor? = descriptor(context, fileName)
+            descriptor?.let {
+                player.setDataSource(
+                    it.fileDescriptor,
+                    it.startOffset,
+                    it.length
+                )
+                closeDescriptor(it)
+            }
+        } catch (ex: IOException) {
+            //println("DEBUG_LOG_PRINT: AssetAudio printStackTrace")
+            ex.printStackTrace()
+        } catch (ex: Exception) {
+            //println("DEBUG_LOG_PRINT: AssetAudio printStackTrace")
+            ex.printStackTrace()
         }
     }
 
-    private fun closeDescriptor(descriptor: AssetFileDescriptor) = descriptor.close()
+    private suspend fun closeDescriptor(descriptor: AssetFileDescriptor) = descriptor.close()
 }
 /*
 

@@ -37,7 +37,7 @@ class ProAudioPlayer(private val builder: Builder) {
         return mediaPlayer!!.isPlaying
     }
 
-    fun onPlayAssetAudio(assetPath: String) {
+    suspend fun onPlayAssetAudio(assetPath: String) {
         try {
             if (isPlaying()) {
                 mediaPlayer?.stop()

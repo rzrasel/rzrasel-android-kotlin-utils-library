@@ -5,32 +5,56 @@ import android.content.res.AssetFileDescriptor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
+import java.io.IOException
 import java.io.InputStream
 
 object AssetFileReader {
-    fun read(context: Context, fileName: String): String =
-        context
-            .assets
-            .open(fileName)
-            .bufferedReader()
-            .use(BufferedReader::readText).toString()
+    suspend fun read(context: Context, fileName: String): String? = withContext(Dispatchers.IO) {
+        try {
+            val bufferReader = context.assets.open(fileName).bufferedReader()
+            bufferReader.use(BufferedReader::readText).toString()
+        } catch (ex: IOException) {
+            null
+        }
+    }
 
-    fun inputStream(context: Context, fileName: String): InputStream =
-        context.assets
-            .open(fileName)
+    suspend fun inputStream(context: Context, fileName: String): InputStream? =
+        withContext(Dispatchers.IO) {
+            try {
+                context.assets.open(fileName)
+            } catch (ex: IOException) {
+                null
+            }
+        }
 
     //imageView.setImageDrawable(myDrawable)
-    fun drawable(context: Context, fileName: String): Drawable? =
-        Drawable.createFromStream(inputStream(context, fileName), null)
+    suspend fun drawable(context: Context, fileName: String, srcName: String? = null): Drawable? =
+        inputStream(context, fileName)?.let {
+            Drawable.createFromStream(it, srcName)
+        } ?: run {
+            null
+        }
 
     //imageView.setImageBitmap(bm)
-    fun bitmap(context: Context, fileName: String): Bitmap? =
-        BitmapFactory.decodeStream(inputStream(context, fileName))
+    suspend fun bitmap(context: Context, fileName: String): Bitmap? =
+        inputStream(context, fileName)?.let {
+            BitmapFactory.decodeStream(it)
+        } ?: run {
+            null
+        }
 
-    fun audioDescriptor(context: Context, fileName: String): AssetFileDescriptor =
-        context.assets.openFd(fileName)
+    suspend fun audioDescriptor(context: Context, fileName: String): AssetFileDescriptor? =
+        withContext(Dispatchers.IO) {
+            try {
+                context.assets.openFd(fileName)
+            } catch (ex: IOException) {
+                null
+            }
+        }
 
     //fun audioMedia(descriptor: AssetFileDescriptor) =
-    fun closeAudioDescriptor(descriptor: AssetFileDescriptor) = descriptor.close()
+    suspend fun closeAudioDescriptor(descriptor: AssetFileDescriptor) = descriptor.close()
 }
