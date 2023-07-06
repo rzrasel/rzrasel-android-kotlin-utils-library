@@ -1,12 +1,12 @@
-# Rz Rasel Kotlin Utils
-rzrasel-kotlin-utils
+# Rz Rasel - Android Kotlin Utils Library
+rzrasel-android-kotlin-utils-library
 
-### Rz Rasel Kotlin Library Utils
+### Rz Rasel - Android Kotlin Utils Library
 
 ### GIT Command
 ```git_command
 git init
-git remote add origin https://github.com/rzrasel/rzrasel-kotlin-utils.git
+git remote add origin https://github.com/rzrasel/rzrasel-android-kotlin-utils-library.git
 git remote -v
 git fetch && git checkout master
 git add .

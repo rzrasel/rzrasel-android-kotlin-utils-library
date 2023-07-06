@@ -330,6 +330,12 @@ class ProPrefDataStore(context: Context) {
         }
     }
 
+    suspend fun <T> putPreference(key: Preferences.Key<T>, value: T) {
+        prefContext.dataStore.edit { preferences ->
+            preferences[key] = value
+        }
+    }
+
     suspend fun remove(dataType: DataType, key: String) {
         prefContext.dataStore.edit {
             when (dataType) {
@@ -407,6 +413,8 @@ private object PreferencesKeys {
 }
 */
 /*
+https://medium.com/@chibichibi58/generic-way-to-use-android-data-store-preference-supported-for-all-data-types-ab97fd3022b6
+
 How to Use Jetpack Preferences DataStore
 https://betterprogramming.pub/using-jetpack-preferences-datastore-more-effectively-414e1126cff7
 https://medium.com/androiddevelopers/all-about-preferences-datastore-cc7995679334

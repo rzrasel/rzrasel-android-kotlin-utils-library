@@ -1,8 +1,11 @@
 package com.rzrasel.kotlinadmob.interstitial.model
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.rzrasel.kotlinadmob.datastore.AdPreferences
 import com.rzrasel.kotlinadmob.utils.AdConstants
+import java.text.SimpleDateFormat
+import java.util.Date
 
 internal data class AdPropertyModel(
     var nextTime: Long = 0L,
@@ -160,7 +163,7 @@ internal data class AdPropertyModel(
     private suspend fun isTriggerEventOver(): Boolean {
         val totalEvent = sharedPrefers.readInt(PreferenceKey.totalEvent)
         val targetTotalEvent = sharedPrefers.readInt(PreferenceKey.targetTotalEvent)
-        if (totalEvent >= targetTotalEvent) {
+        if (totalEvent >= targetTotalEvent - 1) {
             return true
         }
         return false
@@ -183,7 +186,9 @@ internal data class AdPropertyModel(
         super.toString()
         return "AdPropertyModel:" +
                 " nextTime: $nextTime" +
+                " nextTimeInForm: ${getMillisToDate(nextTime)}" +
                 ", lastTime: $lastTime" +
+                ", lastTimeInForm: ${getMillisToDate(lastTime)}" +
                 ", timeDuration: $timeDuration" +
                 ", clickEvent: $clickEvent" +
                 ", windowOpenEvent: $windowOpenEvent" +
@@ -192,5 +197,11 @@ internal data class AdPropertyModel(
                 ", targetTotalEvent: $targetTotalEvent" +
                 ", session: $session" +
                 ", lastEventName: $lastEventName"
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private fun getMillisToDate(milliSeconds: Long): String {
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        return formatter.format(Date(milliSeconds))
     }
 }

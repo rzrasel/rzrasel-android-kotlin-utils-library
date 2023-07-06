@@ -1,103 +1,130 @@
 package com.rzrasel.kotlinadmob.interstitial.helper
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
-import com.rzrasel.kotlinadmob.datastore.AdPreferences
-import com.rzrasel.kotlinadmob.interstitial.model.AdPropertyModel
-import com.rzrasel.kotlinadmob.utils.AdConstants
+import android.widget.Toast
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.rzrasel.kotlinadmob.interstitial.AdMobInterstitial
 
 class AdMobInterstitialHelper private constructor(
+    activity: Activity,
     private val context: Context,
-    private val session: String
+    private val adUnitId: String,
+    private val session: String? = null
 ) {
-    private var adPropertyModel: AdPropertyModel
-    private var adTriggerListener: AdTriggerListener? = null
+
+    private var runAdInterstitial: RunAdMobInterstitial = RunAdMobInterstitial(activity, context, adUnitId)
 
     companion object {
         @SuppressLint("StaticFieldLeak")
         @Volatile
         private var instance: AdMobInterstitialHelper? = null
-        fun getInstance(context: Context, session: String): AdMobInterstitialHelper {
+        fun getInstance(
+            activity: Activity,
+            context: Context,
+            adUnitId: String,
+            session: String? = null
+        ): AdMobInterstitialHelper {
             if (instance == null) {
                 synchronized(AdMobInterstitialHelper::class.java) {
-                    instance = AdMobInterstitialHelper(context, session)
+                    instance = AdMobInterstitialHelper(activity, context, adUnitId, session)
                 }
             }
             return instance!!
         }
     }
 
-    init {
-        adPropertyModel = AdPropertyModel(
-            session = session
-        )
-        adPropertyModel.init(context)
-    }
-
-    fun setAdTriggerListener(adTriggerListener: AdTriggerListener) {
-        this.adTriggerListener = adTriggerListener
-    }
-
-    suspend fun onTriggerEven(eventName: String? = null, eventType: EventType) {
-        //
-        //adPropertyModel.lastEventName = eventName
-        //
-        /*adPropertyModel = AdPropertyModel.getProperty(context)
-        adPropertyModel.lastEventName = eventName
-        AdPropertyModel.setProperty(adPropertyModel)*/
-        adPropertyModel.isAdPropertyStarting()
-        val isAdTriggerReady = adPropertyModel.isAdTriggerReady()
-        adTriggerListener?.let { itTriggerListener ->
-            if (isAdTriggerReady) {
-                itTriggerListener.adTriggerReady()
-                return
-            }
+    /*suspend fun runAdMobHelper() {
+        if(session != null) {
+            //
         }
-        if (isAdTriggerReady) {
+    }*/
+
+    suspend fun runAdMobHelper(
+        eventType: AdMobInterstitialTrigger.EventType,
+        eventName: AdMobInterstitialTrigger.EventName
+    ) {
+        if (session != null) {
+            runAdMobTrigger(session, eventType, eventName)
             return
         }
-        adPropertyModel = getAdPropertyModel()
-        adPropertyModel.lastEventName = eventName
-        when (eventType) {
-            EventType.CLICK_EVENT -> {
-                adPropertyModel.clickEvent += 1
-            }
+        runAdInterstitial.onLoadAd()
+    }
 
-            EventType.WINDOW_OPEN_EVENT -> {
-                adPropertyModel.windowOpenEvent += 1
-            }
-
-            EventType.WINDOW_CLOSE_EVENT -> {
-                adPropertyModel.windowCloseEvent += 1
-            }
+    private suspend fun runAdMobTrigger(
+        session: String,
+        eventType: AdMobInterstitialTrigger.EventType,
+        eventName: AdMobInterstitialTrigger.EventName
+    ) {
+        val runAdTrigger: RunAdMobTrigger = RunAdMobTrigger(context, session)
+        runAdTrigger.setAdTriggerListener(eventType, eventName) {
+            //println("DEBUG_LOG_PRINT: runAdMobTrigger")
+            //showToast("Run AdMob Trigger")
+            runAdInterstitial.onLoadAd()
         }
-        adPropertyModel.totalEvent += 1
-        //adPropertyModel.totalEvent += 30
-        setAdPropertyModel()
-        println("DEBUG_LOG_PRINT: AdMobInterstitialHelper onTriggerEven ${adPropertyModel.toString()}")
     }
 
-    private suspend fun getAdPropertyModel(): AdPropertyModel {
-        return adPropertyModel.getProperty()
+    inner class RunAdMobInterstitial(activity: Activity, context: Context, adUnitId: String) {
+        private var adMobInterstitial: AdMobInterstitial
+
+        init {
+            adMobInterstitial =
+                AdMobInterstitial.getInstance(activity, context)
+            adMobInterstitial.initAds()
+                .setAdMobListener(object : AdMobInterstitial.AdMobListener {
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                        adMobInterstitial.show()
+                    }
+
+                    override fun onAdDismissed() {
+                    }
+
+                    override fun onAdLoadFailed(adError: LoadAdError) {
+                    }
+                })
+        }
+
+        fun onLoadAd() {
+            adMobInterstitial.onLoadInterstitial(adUnitId)
+        }
     }
 
-    private suspend fun setAdPropertyModel() {
-        adPropertyModel.setProperty()
+    inner class RunAdMobTrigger(context: Context, session: String) {
+        private val adMobTrigger: AdMobInterstitialTrigger =
+            AdMobInterstitialTrigger.getInstance(context, session)
+
+        /*private val adMobTriggerListener: AdMobInterstitialTrigger.AdTriggerListener = object :
+            AdMobInterstitialTrigger.AdTriggerListener {
+            override fun adTriggerReady() {
+            }
+        }*/
+
+        suspend fun setAdTriggerListener(
+            eventType: AdMobInterstitialTrigger.EventType,
+            eventName: AdMobInterstitialTrigger.EventName,
+            adTriggerListener: () -> Unit
+        ) {
+            runAdTrigger(eventType, eventName)
+            adMobTrigger.setAdTriggerListener(object : AdMobInterstitialTrigger.AdTriggerListener {
+                override fun adTriggerReady() {
+                    adTriggerListener()
+                }
+            })
+        }
+
+        private suspend fun runAdTrigger(
+            eventType: AdMobInterstitialTrigger.EventType,
+            eventName: AdMobInterstitialTrigger.EventName
+        ) {
+            adMobTrigger.onTriggerEven(
+                eventType,
+                eventName
+            )
+        }
     }
-
-    public interface AdTriggerListener {
-        fun adTriggerReady()
-    }
-
-    fun printAdPropertyModel() {
-        println("DEBUG_LOG_PRINT: AdMobInterstitialHelper ${adPropertyModel.toString()}")
-    }
-
-    enum class EventType(slug: String) {
-        CLICK_EVENT("click_event"),
-        WINDOW_OPEN_EVENT("window_open_event"),
-        WINDOW_CLOSE_EVENT("window_close_event");
-
-        var slug: String? = slug
+    private fun showToast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

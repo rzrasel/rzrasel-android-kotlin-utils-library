@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.doublePreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -32,6 +33,124 @@ class AdDataStore(context: Context) {
     /*private suspend fun writeToDataStore(context:Context,value:String,key:String) = context.dataStore.edit {settings -> settings[stringPreferencesKey(key)] = value }
 
     private suspend fun readFromDataStore(context: Context, key: String) = context.dataStore.data.first()[stringPreferencesKey(key)]*/
+
+    suspend fun <T> putPreference(key: Preferences.Key<T>, value: T) {
+        prefContext.dataStore.edit { preferences ->
+            preferences[key] = value
+        }
+    }
+
+    suspend fun <T> getPreference(key: Preferences.Key<T>, defaultValue: T):
+            Flow<T> = prefContext.dataStore.data.catch { exception ->
+        if (exception is IOException) {
+            emit(emptyPreferences())
+        } else {
+            throw exception
+        }
+    }.map { preferences ->
+        val result = preferences[key] ?: defaultValue
+        result
+    }
+
+    suspend fun writePreference(prefsDataSet: ArrayList<PrefsDataModel>) {
+        try {
+            prefContext.dataStore.edit { preferences ->
+                //preferences[key] = value
+                prefsDataSet.forEach {
+                    when (it.dataType) {
+                        DataType.BOOLEAN -> {
+                            val key = booleanPreferencesKey(it.key)
+                            preferences[key] = it.value.toString().toBoolean()
+                        }
+
+                        DataType.DOUBLE -> {
+                            val key = doublePreferencesKey(it.key)
+                            preferences[key] = it.value.toString().toDouble()
+                        }
+
+                        DataType.FLOAT -> {
+                            val key = floatPreferencesKey(it.key)
+                            preferences[key] = it.value.toString().toFloat()
+                        }
+
+                        DataType.INT -> {
+                            val key = intPreferencesKey(it.key)
+                            preferences[key] = it.value.toString().toInt()
+                        }
+
+                        DataType.LONG -> {
+                            val key = longPreferencesKey(it.key)
+                            preferences[key] = it.value.toString().toLong()
+                        }
+
+                        DataType.STRING -> {
+                            val key = stringPreferencesKey(it.key)
+                            preferences[key] = it.value.toString()
+                        }
+
+                        else -> {}
+                    }
+                }
+            }
+        } catch (ex: IOException) {
+            throw ex
+        } catch (ex: Exception) {
+            throw ex
+        }
+    }
+
+    suspend fun <T> readPreference(prefsDataSet: ArrayList<PrefsDataModel>):
+            Flow<T> = prefContext.dataStore.data.catch { exception ->
+        if (exception is IOException) {
+            emit(emptyPreferences())
+        } else {
+            throw exception
+        }
+    }.map { preferences ->
+        for(item in prefsDataSet) {
+            when (item.dataType) {
+                DataType.BOOLEAN -> {
+                    val key = booleanPreferencesKey(item.key)
+                    item.value = preferences[key].toString().toBoolean()
+                }
+
+                DataType.DOUBLE -> {
+                    val key = doublePreferencesKey(item.key)
+                    item.value = preferences[key].toString().toDouble()
+                }
+
+                DataType.FLOAT -> {
+                    val key = floatPreferencesKey(item.key)
+                    item.value = preferences[key].toString().toFloat()
+                }
+
+                DataType.INT -> {
+                    val key = intPreferencesKey(item.key)
+                    item.value = preferences[key].toString().toInt()
+                }
+
+                DataType.LONG -> {
+                    val key = longPreferencesKey(item.key)
+                    item.value = preferences[key].toString().toLong()
+                }
+
+                DataType.STRING -> {
+                    val key = stringPreferencesKey(item.key)
+                    item.value = preferences[key].toString()
+                }
+
+                else -> {}
+            }
+        }
+        prefsDataSet as T
+    }
+
+    data class PrefsDataModel(
+        var key: String,
+        var value: Any?,
+        var dataType: DataType,
+        var defaultValue: Any? = null
+    )
 
     /**
      * Add string data to data Store
@@ -214,55 +333,61 @@ class AdDataStore(context: Context) {
     //
     suspend fun <T> write(dataType: DataType, key: String, value: T) {
         when (dataType) {
-            DataType.BOOL_KEY ->
+            DataType.BOOLEAN ->
                 writeBoolean(key, value as Boolean)
 
-            DataType.DOUBLE_KEY ->
+            DataType.DOUBLE ->
                 writeDouble(key, value as Double)
 
-            DataType.INT_KEY ->
+            DataType.INT ->
                 writeInt(key, value as Int)
 
-            DataType.LONG_KEY ->
+            DataType.LONG ->
                 writeLong(key, value as Long)
 
-            DataType.STRING_KEY ->
+            DataType.STRING ->
                 writeString(key, value as String)
+
+            else -> {}
         }
         //prefContext.dataStore.edit { pref -> pref[intPreferencesKey(key)] = value }
     }
 
-    fun read(dataType: DataType, key: String): Flow<Any> {
+    fun read(dataType: DataType, key: String): Flow<Any>? {
         when (dataType) {
-            DataType.BOOL_KEY ->
+            DataType.BOOLEAN ->
                 /*return prefContext.dataStore.data.map { pref ->
                     pref[booleanPreferencesKey(key)] ?: false
                 }*/
                 return readBoolean(key)
 
-            DataType.DOUBLE_KEY ->
+            DataType.DOUBLE ->
                 /*return prefContext.dataStore.data.map { pref ->
                     pref[doublePreferencesKey(key)] ?: 0.0
                 }*/
                 return readDouble(key)
 
-            DataType.INT_KEY ->
+            DataType.INT ->
                 /*return prefContext.dataStore.data.map { pref ->
                     pref[intPreferencesKey(key)] ?: 0
                 }*/
                 return readInt(key)
 
-            DataType.LONG_KEY ->
+            DataType.LONG ->
                 /*return prefContext.dataStore.data.map { pref ->
                     pref[longPreferencesKey(key)] ?: 0L
                 }*/
                 return readLong(key)
 
-            DataType.STRING_KEY ->
+            DataType.STRING ->
                 /*return prefContext.dataStore.data.map { pref ->
                     pref[stringPreferencesKey(key)] ?: ""
                 }*/
                 return readString(key)
+
+            else -> {
+                return null
+            }
         }
         /*return prefContext.dataStore.data.map { pref ->
             pref[booleanPreferencesKey(key)] ?: false
@@ -271,20 +396,24 @@ class AdDataStore(context: Context) {
 
     private suspend fun readDataStore(dataType: DataType, key: String): Any? {
         when (dataType) {
-            DataType.BOOL_KEY ->
+            DataType.BOOLEAN ->
                 return prefContext.dataStore.data.first()[booleanPreferencesKey(key)]
 
-            DataType.DOUBLE_KEY ->
+            DataType.DOUBLE ->
                 return prefContext.dataStore.data.first()[doublePreferencesKey(key)]
 
-            DataType.INT_KEY ->
+            DataType.INT ->
                 return prefContext.dataStore.data.first()[intPreferencesKey(key)]
 
-            DataType.LONG_KEY ->
+            DataType.LONG ->
                 return prefContext.dataStore.data.first()[longPreferencesKey(key)]
 
-            DataType.STRING_KEY ->
+            DataType.STRING ->
                 return prefContext.dataStore.data.first()[stringPreferencesKey(key)]
+
+            else -> {
+                return null
+            }
         }
     }
 
@@ -333,45 +462,57 @@ class AdDataStore(context: Context) {
     suspend fun remove(dataType: DataType, key: String) {
         prefContext.dataStore.edit {
             when (dataType) {
-                DataType.BOOL_KEY ->
+                DataType.BOOLEAN ->
                     if (it.contains(booleanPreferencesKey(key))) {
                         it.remove(booleanPreferencesKey(key))
                     }
 
-                DataType.DOUBLE_KEY ->
+                DataType.DOUBLE ->
                     if (it.contains(doublePreferencesKey(key))) {
                         it.remove(doublePreferencesKey(key))
                     }
 
-                DataType.INT_KEY ->
+                DataType.INT ->
                     if (it.contains(intPreferencesKey(key))) {
                         it.remove(intPreferencesKey(key))
                     }
 
-                DataType.LONG_KEY ->
+                DataType.LONG ->
                     if (it.contains(longPreferencesKey(key))) {
                         it.remove(longPreferencesKey(key))
                     }
 
-                DataType.STRING_KEY ->
+                DataType.STRING ->
                     if (it.contains(stringPreferencesKey(key))) {
                         it.remove(stringPreferencesKey(key))
                     }
+
+                else -> {}
             }
         }
     }
     //private val USER_FIRST_NAME = stringPreferencesKey("user_first_name")
 
-    enum class DataType(prefKey: String) {
+    enum class DataType(type: String) {
+        BOOLEAN("bool"),
+        DOUBLE("double"),
+        FLOAT("float"),
+        INT("int"),
+        LONG("long"),
+        STRING("string");
+    }
+    /*enum class DataType(type: String) {
         BOOL_KEY("bool"),
         DOUBLE_KEY("double"),
         INT_KEY("int"),
         LONG_KEY("long"),
         STRING_KEY("string");
-    }
+    }*/
 
 }
 /*
+https://medium.com/@chibichibi58/generic-way-to-use-android-data-store-preference-supported-for-all-data-types-ab97fd3022b6
+
 val prefDataStore: AdDataStore = AdDataStore(this@HorizontalRecyclerActivity)
 lifecycleScope.launch {
     prefDataStore.writeString("test_key", "test data in data store")
@@ -412,4 +553,70 @@ https://betterprogramming.pub/using-jetpack-preferences-datastore-more-effective
 https://medium.com/androiddevelopers/all-about-preferences-datastore-cc7995679334
 https://medium.com/androiddevelopers/all-about-preferences-datastore-cc7995679334
 https://androidgeek.co/how-to-use-datastore-preferences-in-kotlin-f1df16f17ac0
+*/
+/*
+
+val prefsInDataSet: ArrayList<AdDataStore.PrefsDataModel> = ArrayList()
+prefsInDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_1",
+        "value_1",
+        AdDataStore.DataType.STRING
+    )
+)
+prefsInDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_2",
+        "value_2",
+        AdDataStore.DataType.STRING
+    )
+)
+prefsInDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_3",
+        true,
+        AdDataStore.DataType.BOOLEAN
+    )
+)
+val prefDataStore: AdDataStore = AdDataStore(this)
+lifecycleScope.launch {
+    /=*prefDataStore.writeString("session_key", "ad session")
+    prefDataStore.writeString("test_key", "test data in data store")*=/
+    prefDataStore.writePreference(prefsInDataSet)
+}
+val prefsOutDataSet: ArrayList<AdDataStore.PrefsDataModel> = ArrayList()
+prefsOutDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_1",
+        null,
+        AdDataStore.DataType.STRING
+    )
+)
+prefsOutDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_2",
+        null,
+        AdDataStore.DataType.STRING
+    )
+)
+prefsOutDataSet.add(
+    AdDataStore.PrefsDataModel(
+        "key_3",
+        null,
+        AdDataStore.DataType.BOOLEAN
+    )
+)
+lifecycleScope.launch {
+    /=*prefDataStore.readString("session_key").collect {
+        println("DEBUG_LOG_PRINT: prefDataStore session $it")
+    }
+    prefDataStore.readString("test_key").collect {
+        println("DEBUG_LOG_PRINT: prefDataStore profData $it")
+    }*=/
+    prefDataStore.readPreference<ArrayList<AdDataStore.PrefsDataModel>>(prefsOutDataSet)
+        .collect {
+            println("DEBUG_LOG_PRINT: prefDataStore 149 $it")
+        }
+}
+
 */
