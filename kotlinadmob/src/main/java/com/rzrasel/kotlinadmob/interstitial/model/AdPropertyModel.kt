@@ -187,6 +187,7 @@ internal data class AdPropertyModel(
         return "AdPropertyModel:" +
                 " nextTime: $nextTime" +
                 " nextTimeInForm: ${getMillisToDate(nextTime)}" +
+                " currentTimeInForm: ${getMillisToDate(System.currentTimeMillis())}" +
                 ", lastTime: $lastTime" +
                 ", lastTimeInForm: ${getMillisToDate(lastTime)}" +
                 ", timeDuration: $timeDuration" +

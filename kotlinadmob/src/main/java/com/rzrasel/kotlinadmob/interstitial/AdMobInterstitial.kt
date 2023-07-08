@@ -132,3 +132,27 @@ class AdMobInterstitial private constructor(
         fun onAdLoadFailed(adError: LoadAdError)
     }
 }
+
+/*
+private fun adMobInit() {
+    //val adUnitId = resources.getString(R.string.admob_interstitial_ad_unit_id)
+    //val adUnitId = R.string.admob_interstitial_ad_unit_id.getString(this)
+    val adUnitId = "admob_interstitial_ad_unit_id".getString(this)
+    val adMobInterstitial: AdMobInterstitial = AdMobInterstitial.getInstance(this, this)
+    adMobInterstitial.initAds()
+        .setAdMobListener(object : AdMobInterstitial.AdMobListener {
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                adMobInterstitial.show()
+            }
+
+            override fun onAdDismissed() {
+            }
+
+            override fun onAdLoadFailed(adError: LoadAdError) {
+            }
+
+        })
+        .onLoadInterstitial(adUnitId)
+    //adMobInterstitial.show()
+}
+*/

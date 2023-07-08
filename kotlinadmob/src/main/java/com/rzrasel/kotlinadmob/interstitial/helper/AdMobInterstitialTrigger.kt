@@ -48,7 +48,7 @@ class AdMobInterstitialTrigger private constructor(
         adTriggerListener?.let { itTriggerListener ->
             if (isAdTriggerReady) {
                 itTriggerListener.adTriggerReady()
-                printAdPropertyModel()
+                //printAdPropertyModel()
                 return
             }
         }
@@ -102,6 +102,8 @@ class AdMobInterstitialTrigger private constructor(
     enum class EventName(slug: String) {
         BUTTON_CLICK_EVENT("button_click_event"),
         ACTIVITY_CREATE_EVENT("window_activity_open_event"),
+        ACTIVITY_PAUSE_EVENT("window_activity_pause_event"),
+        ACTIVITY_RESUME_EVENT("window_activity_resume_event"),
         ACTIVITY_DESTROY_EVENT("window_activity_destroy_event");
 
         var slug: String? = slug
