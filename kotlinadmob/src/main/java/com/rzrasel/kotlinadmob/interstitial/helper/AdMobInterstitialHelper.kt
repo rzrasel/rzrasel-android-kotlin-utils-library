@@ -14,8 +14,7 @@ class AdMobInterstitialHelper private constructor(
     private val adUnitId: String,
     private val session: String? = null
 ) {
-
-    private var runAdInterstitial: RunAdMobInterstitial = RunAdMobInterstitial(activity, context, adUnitId)
+    private var adMobListener: AdMobListener? = null
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -35,6 +34,14 @@ class AdMobInterstitialHelper private constructor(
             return instance!!
         }
     }
+
+    fun setAdMobHelperListener(adMobListener: AdMobListener): AdMobInterstitialHelper {
+        this.adMobListener = adMobListener
+        return this
+    }
+
+    private var runAdInterstitial: RunAdMobInterstitial =
+        RunAdMobInterstitial(activity, context, adUnitId)
 
     /*suspend fun runAdMobHelper() {
         if(session != null) {
@@ -76,12 +83,15 @@ class AdMobInterstitialHelper private constructor(
                 .setAdMobListener(object : AdMobInterstitial.AdMobListener {
                     override fun onAdLoaded(interstitialAd: InterstitialAd) {
                         adMobInterstitial.show()
+                        adMobListener?.onAdLoaded(interstitialAd)
                     }
 
                     override fun onAdDismissed() {
+                        adMobListener?.onAdDismissed()
                     }
 
                     override fun onAdLoadFailed(adError: LoadAdError) {
+                        adMobListener?.onAdLoadFailed(adError)
                     }
                 })
         }
@@ -124,6 +134,13 @@ class AdMobInterstitialHelper private constructor(
             )
         }
     }
+
+    interface AdMobListener {
+        fun onAdLoaded(interstitialAd: InterstitialAd)
+        fun onAdDismissed()
+        fun onAdLoadFailed(adError: LoadAdError)
+    }
+
     private fun showToast(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }

@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo
 import android.os.Build
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 
 class ResourceUtility {
     fun isDebuggable(activity: Activity): Boolean {
@@ -39,6 +40,10 @@ fun Context.isDebuggable(): Boolean {
     } else {
         return false
     }
+}
+
+fun Context.showToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 
 fun View.singleClickable(delayMillis: Long = 2000L) {
